@@ -53,6 +53,53 @@
         </fieldset>
     {% endfor %}
 
+    <button type="button" onclick="ajouterExperience()">➕ Ajouter une expérience</button>
+    <button type="button" onclick="ajouterFormation()">➕ Ajouter une formation</button>
+    <br><br>
+
     <button type="submit">💾 Sauvegarder</button>
 </form>
+<script>
+function ajouterExperience() {
+    const container = document.querySelector("h3:contains('Expériences') + fieldset")?.parentNode;
+    if (!container) return;
+
+    const i = container.querySelectorAll("fieldset").length;
+    const template = `
+        <fieldset>
+            <legend>Expérience ${i + 1}</legend>
+            <label>Poste</label><br>
+            <input type="text" name="exp_poste_${i}" value=""><br>
+            <label>Entreprise</label><br>
+            <input type="text" name="exp_entreprise_${i}" value=""><br>
+            <label>Période</label><br>
+            <input type="text" name="exp_periode_${i}" value=""><br>
+            <label>Description</label><br>
+            <textarea name="exp_description_${i}"></textarea><br><br>
+        </fieldset>
+    `;
+    container.insertAdjacentHTML("beforeend", template);
+}
+
+function ajouterFormation() {
+    const container = document.querySelector("h3:contains('Formations') + fieldset")?.parentNode;
+    if (!container) return;
+
+    const i = container.querySelectorAll("fieldset").length - document.querySelectorAll("h3:contains('Expériences') + fieldset").length;
+    const template = `
+        <fieldset>
+            <legend>Formation ${i + 1}</legend>
+            <label>Diplôme</label><br>
+            <input type="text" name="form_diplome_${i}" value=""><br>
+            <label>Lieu</label><br>
+            <input type="text" name="form_lieu_${i}" value=""><br>
+            <label>Période</label><br>
+            <input type="text" name="form_periode_${i}" value=""><br>
+            <label>Description</label><br>
+            <textarea name="form_description_${i}"></textarea><br><br>
+        </fieldset>
+    `;
+    container.insertAdjacentHTML("beforeend", template);
+}
+</script>
 {% endblock %}
