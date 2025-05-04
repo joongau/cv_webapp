@@ -94,6 +94,23 @@
         </fieldset>
     {% endfor %}
 
+    <h3>Projets</h3>
+    <div id="projets-container">
+        {% for proj in cv.projets %}
+            <div class="projet-item">
+                <label>Titre</label>
+                <input type="text" name="proj_titre_{{ loop.index0 }}" value="{{ proj.titre }}"><br>
+                <label>Année</label>
+                <input type="text" name="proj_année_{{ loop.index0 }}" value="{{ proj.année }}"><br>
+                <label>Description</label><br>
+                <textarea name="proj_description_{{ loop.index0 }}">{{ proj.description }}</textarea><br><br>
+                <button type="button" onclick="confirmerEtSupprimer(this)">❌ Supprimer ce projet</button>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="button" onclick="ajouterProjet()">➕ Ajouter un projet</button>
+    <br><br>
+
     <button type="button" onclick="ajouterExperience()">➕ Ajouter une expérience</button>
     <button type="button" onclick="ajouterFormation()">➕ Ajouter une formation</button>
     <br><br>
@@ -239,6 +256,24 @@ function supprimerBloc(button) {
     if (confirm("Supprimer cette compétence ?")) {
         button.closest('.competence-item').remove();
     }
+}
+</script>
+<script>
+function ajouterProjet() {
+    const container = document.getElementById("projets-container");
+    const index = container.querySelectorAll('.projet-item').length;
+    const template = `
+        <div class="projet-item">
+            <label>Titre</label>
+            <input type="text" name="proj_titre_${index}" value=""><br>
+            <label>Année</label>
+            <input type="text" name="proj_année_${index}" value=""><br>
+            <label>Description</label><br>
+            <textarea name="proj_description_${index}"></textarea><br><br>
+            <button type="button" onclick="confirmerEtSupprimer(this)">❌ Supprimer ce projet</button>
+        </div>
+    `;
+    container.insertAdjacentHTML("beforeend", template);
 }
 </script>
 {% endblock %}
