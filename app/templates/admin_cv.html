@@ -57,7 +57,7 @@
     <button type="button" onclick="ajouterFormation()">➕ Ajouter une formation</button>
     <br><br>
 
-    <button type="submit" onclick="return confirmerSauvegarde()">💾 Sauvegarder</button>
+    <button type="button" onclick="previsualiserEtConfirmer()">👁️ Prévisualiser puis sauvegarder</button>
 </form>
 <script>
 function ajouterExperience() {
@@ -103,8 +103,17 @@ function ajouterFormation() {
 }
 </script>
 <script>
-function confirmerSauvegarde() {
-    return confirm("Souhaites-tu vraiment sauvegarder les modifications du CV ?");
+function previsualiserEtConfirmer() {
+    const nom = document.querySelector('[name="nom"]').value;
+    const titre = document.querySelector('[name="titre"]').value;
+    const profil = document.querySelector('[name="profil"]').value;
+    const competences = document.querySelector('[name="competences"]').value;
+
+    let message = `📝 Aperçu du CV :\n\nNom : ${nom}\nTitre : ${titre}\nProfil : ${profil}\nCompétences : ${competences}\n\nContinuer la sauvegarde ?`;
+    
+    if (confirm(message)) {
+        document.querySelector('form').submit();
+    }
 }
 </script>
 {% endblock %}
