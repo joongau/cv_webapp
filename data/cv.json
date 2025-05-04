@@ -3,11 +3,82 @@
   "titre": "Conseiller Commercial & Futur Data Engineer",
   "profil": "Entre fibre commerciale et fibre optique, j’ai toujours eu un pied dans la relation client… et l’autre dans le monde des données. Curieux de nature, j’aime comprendre, structurer et automatiser ce qui peut l’être. Mon quotidien chez Orange m’a appris à écouter, conseiller et anticiper les besoins — aujourd’hui, j’aspire à faire parler les données avec la même finesse.",
   "competences": [
-    { "nom": "Git", "note": 4 },
-    { "nom": "Intelligence Artificielle", "note": 5 },
-    { "nom": "Programmation Web", "note": 4 },
-    { "nom": "Anglais", "note": 5 },
-    { "nom": "Esprit d'équipe", "note": 5 }
+    {
+      "nom": "Git",
+      "note": 4
+    },
+    {
+      "nom": "Intelligence Artificielle",
+      "note": 5
+    },
+    {
+      "nom": "Programmation Web",
+      "note": 4
+    },
+    {
+      "nom": "Anglais",
+      "note": 5
+    },
+    {
+      "nom": "Esprit d'Équipe",
+      "note": 5
+    },
+    {
+      "nom": "Python",
+      "note": 4
+    },
+    {
+      "nom": "Pandas",
+      "note": 3
+    },
+    {
+      "nom": "SQL",
+      "note": 4
+    },
+    {
+      "nom": "API REST",
+      "note": 4
+    },
+    {
+      "nom": "Flask",
+      "note": 4
+    },
+    {
+      "nom": "HTML / CSS",
+      "note": 4
+    },
+    {
+      "nom": "JavaScript",
+      "note": 3
+    },
+    {
+      "nom": "GitHub",
+      "note": 4
+    },
+    {
+      "nom": "Automatisation",
+      "note": 4
+    },
+    {
+      "nom": "Autonomie",
+      "note": 4
+    },
+    {
+      "nom": "Curiosité",
+      "note": 5
+    },
+    {
+      "nom": "Capacité d’apprentissage",
+      "note": 4
+    },
+    {
+      "nom": "Esprit d’analyse",
+      "note": 4
+    },
+    {
+      "nom": "Pédagogie",
+      "note": 4
+    }
   ],
   "experiences": [
     {
