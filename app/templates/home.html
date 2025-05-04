@@ -1,19 +1,11 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>{{ cv.nom }} - CV</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}CV - Jonathan Gaultier{% endblock %}
+
+{% block content %}
     {% include 'partials/header.html' %}
-
     {% include 'partials/experiences.html' %}
-
     {% include 'partials/competences.html' %}
-
     {% include 'partials/formations.html' %}
-
     {% include 'partials/contact.html' %}
-</body>
-</html>
+{% endblock %}

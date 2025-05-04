@@ -1,27 +1,17 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <title>Mes Projets - Jonathan Gaultier</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-</head>
-<body>
-    <header>
-        <h1>Mes projets</h1>
-        <nav>
-            <a href="/">← Retour au CV</a>
-        </nav>
-    </header>
+{% extends 'base.html' %}
 
-    <section>
-        <ul>
-            {% for projet in projets %}
-                <li>
-                    <h3>{{ projet.titre }} <small>({{ projet.année }})</small></h3>
-                    <p>{{ projet.description }}</p>
-                </li>
-            {% endfor %}
-        </ul>
-    </section>
-</body>
-</html>
+{% block title %}Mes Projets - Jonathan Gaultier{% endblock %}
+
+{% block content %}
+<section>
+    <h2>Mes projets</h2>
+    <ul>
+        {% for projet in projets %}
+            <li>
+                <h3>{{ projet.titre }} <small>({{ projet.année }})</small></h3>
+                <p>{{ projet.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
+{% endblock %}
