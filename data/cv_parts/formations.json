@@ -1,0 +1,10 @@
+{
+    "formations": [
+    {
+      "diplome": "Formations Développeur Full Stack",
+      "lieu": "The Hacking Project (2019), Studi (2020)",
+      "periode": "2019 – 2020",
+      "description": "Ruby, PHP, SQL, JavaScript, bot Discord, landing-page"
+    }
+  ]
+}

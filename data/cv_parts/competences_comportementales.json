@@ -1,0 +1,32 @@
+{
+    "competences_comportementales": [
+    {
+      "nom": "Anglais",
+      "note": 5
+    },
+    {
+      "nom": "Esprit d'Équipe",
+      "note": 5
+    },
+    {
+      "nom": "Autonomie",
+      "note": 5
+    },
+    {
+      "nom": "Curiosité",
+      "note": 5
+    },
+    {
+      "nom": "Capacité d’apprentissage",
+      "note": 5
+    },
+    {
+      "nom": "Esprit d’analyse",
+      "note": 5
+    },
+    {
+      "nom": "Pédagogie",
+      "note": 5
+    }
+  ]
+}

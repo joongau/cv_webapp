@@ -12,13 +12,23 @@ client = OpenAI()
 
 main = Blueprint('main', __name__)
 
+def charger_partie(nom_fichier):
+    with open(os.path.join(cv_dir, nom_fichier), 'r', encoding='utf-8') as f:
+        return json.load(f)
+
 @main.route('/')
 def home():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(base_dir, '../data/cv.json')
+    cv_dir = os.path.join(base_dir, '../data/cv_parts')
 
-    with open(json_path, 'r', encoding='utf-8') as f:
-        cv_data = json.load(f)
+    cv_data = {
+        **charger_partie('identite.json'),
+        "competences_techniques": charger_partie('competences_techniques.json'),
+        "competences_comportementales": charger_partie('competences_comportementales.json'),
+        "experiences": charger_partie('experiences.json'),
+        "formations": charger_partie('formations.json'),
+        "contact": charger_partie('contact.json')
+    }
 
     return render_template("home.html", cv=cv_data)
 
@@ -41,9 +51,16 @@ def projets():
 @main.route('/api/cv')
 def api_cv():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(base_dir, '../data/cv.json')
-    with open(json_path, 'r', encoding='utf-8') as f:
-        cv_data = json.load(f)
+    cv_dir = os.path.join(base_dir, '../data/cv_parts')
+
+    cv_data = {
+        **charger_partie('identite.json'),
+        "competences_techniques": charger_partie('competences_techniques.json'),
+        "competences_comportementales": charger_partie('competences_comportementales.json'),
+        "experiences": charger_partie('experiences.json'),
+        "formations": charger_partie('formations.json'),
+        "contact": charger_partie('contact.json')
+    }
     return jsonify(cv_data)
 
 @main.route('/api/projets')
@@ -148,10 +165,16 @@ def admin_cv():
         return redirect(url_for('main.login'))
 
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(base_dir, '../data/cv.json')
+    cv_dir = os.path.join(base_dir, '../data/cv_parts')
 
-    with open(json_path, 'r', encoding='utf-8') as f:
-        cv_data = json.load(f)
+    cv_data = {
+        **charger_partie('identite.json'),
+        "competences_techniques": charger_partie('competences_techniques.json'),
+        "competences_comportementales": charger_partie('competences_comportementales.json'),
+        "experiences": charger_partie('experiences.json'),
+        "formations": charger_partie('formations.json'),
+        "contact": charger_partie('contact.json')
+    }
 
     if request.method == 'POST':
         try:
@@ -218,8 +241,27 @@ def admin_cv():
                         "description": request.form.get(f"form_description_{i}", "")
                     })
 
-            with open(json_path, 'w', encoding='utf-8') as f:
-                json.dump(data, f, ensure_ascii=False, indent=2)
+            with open(os.path.join(cv_dir, 'identite.json'), 'w', encoding='utf-8') as f:
+                json.dump({
+                    "nom": data["nom"],
+                    "titre": data["titre"],
+                    "profil": data["profil"]
+                }, f, ensure_ascii=False, indent=2)
+
+            with open(os.path.join(cv_dir, 'competences_techniques.json'), 'w', encoding='utf-8') as f:
+                json.dump(data["competences_techniques"], f, ensure_ascii=False, indent=2)
+
+            with open(os.path.join(cv_dir, 'competences_comportementales.json'), 'w', encoding='utf-8') as f:
+                json.dump(data["competences_comportementales"], f, ensure_ascii=False, indent=2)
+
+            with open(os.path.join(cv_dir, 'experiences.json'), 'w', encoding='utf-8') as f:
+                json.dump(data["experiences"], f, ensure_ascii=False, indent=2)
+
+            with open(os.path.join(cv_dir, 'formations.json'), 'w', encoding='utf-8') as f:
+                json.dump(data["formations"], f, ensure_ascii=False, indent=2)
+
+            with open(os.path.join(cv_dir, 'contact.json'), 'w', encoding='utf-8') as f:
+                json.dump(data["contact"], f, ensure_ascii=False, indent=2)
 
             flash("✅ CV mis à jour.")
             return redirect(url_for('main.admin_cv'))
@@ -234,11 +276,17 @@ def admin_cv():
 @main.route('/api/chat', methods=['POST'])
 def chatbot():
     base_dir = os.path.dirname(os.path.abspath(__file__))
-    cv_path = os.path.join(base_dir, '../data/cv.json')
+    cv_dir = os.path.join(base_dir, '../data/cv_parts')
 
     try:
-        with open(cv_path, 'r', encoding='utf-8') as f:
-            cv_data = json.load(f)
+        cv_data = {
+            **charger_partie('identite.json'),
+            "competences_techniques": charger_partie('competences_techniques.json'),
+            "competences_comportementales": charger_partie('competences_comportementales.json'),
+            "experiences": charger_partie('experiences.json'),
+            "formations": charger_partie('formations.json'),
+            "contact": charger_partie('contact.json')
+        }
 
         data = request.get_json()
         question = data.get("question")
