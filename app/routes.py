@@ -4,6 +4,8 @@ import json
 import os
 from flask import jsonify
 from flask import request, redirect, url_for, session, flash
+from openai import OpenAI
+client = OpenAI()
 
 
 main = Blueprint('main', __name__)
@@ -222,8 +224,6 @@ def chatbot():
         if not question:
             return jsonify({"error": "Question manquante"}), 400
 
-        openai.api_key = os.getenv("OPENAI_API_KEY")
-
         messages = [
             {
                 "role": "system",
@@ -239,12 +239,12 @@ def chatbot():
             }
         ]
 
-        response = openai.ChatCompletion.create(
+        response = client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=messages
         )
 
-        return jsonify({"answer": response.choices[0].message['content']})
+        return jsonify({"answer": response.choices[0].message.content})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
