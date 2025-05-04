@@ -57,7 +57,7 @@
     <button type="button" onclick="ajouterFormation()">➕ Ajouter une formation</button>
     <br><br>
 
-    <button type="submit">💾 Sauvegarder</button>
+    <button type="submit" onclick="return confirmerSauvegarde()">💾 Sauvegarder</button>
 </form>
 <script>
 function ajouterExperience() {
@@ -100,6 +100,11 @@ function ajouterFormation() {
         </fieldset>
     `;
     container.insertAdjacentHTML("beforeend", template);
+}
+</script>
+<script>
+function confirmerSauvegarde() {
+    return confirm("Souhaites-tu vraiment sauvegarder les modifications du CV ?");
 }
 </script>
 {% endblock %}
