@@ -32,7 +32,27 @@ fetch("/api/projets")
         `;
         document.getElementById("ajout-projet-form").addEventListener("submit", function(e) {
             e.preventDefault();
-            alert("Le formulaire fonctionne (envoi non encore connecté à l'API).");
+
+            const titre = document.getElementById("titre").value.trim();
+            const annee = document.getElementById("annee").value.trim();
+            const description = document.getElementById("description").value.trim();
+
+            if (!titre || !annee || !description) return alert("Tous les champs sont obligatoires.");
+
+            const nouveauProjet = { titre, année: annee, description };
+
+            const liste = document.querySelector("#projets-container ul");
+            const li = document.createElement("li");
+            li.innerHTML = `
+                <h3>${nouveauProjet.titre} <small>(${nouveauProjet.année})</small></h3>
+                <p>${nouveauProjet.description}</p>
+            `;
+            liste.appendChild(li);
+
+            // Réinitialiser le formulaire
+            e.target.reset();
+
+            // 🔜 Option future : POST vers /api/projets/ajouter
         });
     })
     .catch(() => {
