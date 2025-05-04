@@ -6,47 +6,14 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>{{ cv.nom }}</h1>
-    <h2>{{ cv.titre }}</h2>
-    <p>{{ cv.profil }}</p>
+    {% include 'partials/header.html' %}
 
-    <h3>Expériences professionnelles</h3>
-    <ul>
-        {% for exp in cv.experiences %}
-            <li>
-                <strong>{{ exp.poste }}</strong> chez <em>{{ exp.entreprise }}</em><br>
-                <small>{{ exp.periode }}</small><br>
-                {{ exp.description }}
-            </li>
-        {% endfor %}
-    </ul>
+    {% include 'partials/experiences.html' %}
 
-    <h3>Compétences</h3>
-    <ul>
-        {% for skill in cv.competences %}
-            <li>{{ skill }}</li>
-        {% endfor %}
-    </ul>
+    {% include 'partials/competences.html' %}
 
-    <h3>Formations</h3>
-    <ul>
-        {% for formation in cv.formations %}
-            <li>
-                <strong>{{ formation.diplome }}</strong><br>
-                {{ formation.lieu }}<br>
-                <small>{{ formation.periode }}</small><br>
-                {% if formation.description %}
-                    {{ formation.description }}
-                {% endif %}
-            </li>
-        {% endfor %}
-    </ul>
+    {% include 'partials/formations.html' %}
 
-    <h3>Contact</h3>
-    <ul>
-        <li><strong>Téléphone :</strong> {{ cv.contact.téléphone }}</li>
-        <li><strong>Email :</strong> {{ cv.contact.email }}</li>
-        <li><strong>Adresse :</strong> {{ cv.contact.adresse }}</li>
-    </ul>
+    {% include 'partials/contact.html' %}
 </body>
 </html>
