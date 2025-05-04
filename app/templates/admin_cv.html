@@ -1,0 +1,28 @@
+
+
+{% extends "base.html" %}
+{% block title %}Admin - CV{% endblock %}
+
+{% block content %}
+<h2>Édition du CV</h2>
+
+{% if get_flashed_messages() %}
+    <p style="color:green;">{{ get_flashed_messages()[0] }}</p>
+{% endif %}
+
+<form method="post">
+    <label>Nom</label><br>
+    <input type="text" name="nom" value="{{ cv.nom }}"><br><br>
+
+    <label>Titre</label><br>
+    <input type="text" name="titre" value="{{ cv.titre }}"><br><br>
+
+    <label>Profil</label><br>
+    <textarea name="profil" rows="5">{{ cv.profil }}</textarea><br><br>
+
+    <label>Compétences (séparées par des virgules)</label><br>
+    <input type="text" name="competences" value="{{ cv.competences | join(', ') }}"><br><br>
+
+    <button type="submit">💾 Sauvegarder</button>
+</form>
+{% endblock %}
