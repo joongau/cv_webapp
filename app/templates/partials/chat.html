@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}Chat avec Jonathan{% endblock %}
+
+{% block content %}
+<h2>💬 Chatbot - Posez une question sur mon profil</h2>
+
+<div id="chat-container">
+  <div id="messages" style="border:1px solid #ccc; padding:10px; min-height:150px;"></div>
+  <br>
+  <input type="text" id="question" placeholder="Posez votre question..." style="width:80%;">
+  <button onclick="envoyerQuestion()">Envoyer</button>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+function afficherMessage(texte, type) {
+    const messages = document.getElementById("messages");
+    const div = document.createElement("div");
+    div.textContent = texte;
+    div.style.margin = "10px 0";
+    div.style.fontWeight = type === "bot" ? "normal" : "bold";
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+}
+
+function envoyerQuestion() {
+    const questionInput = document.getElementById("question");
+    const question = questionInput.value.trim();
+    if (!question) return;
+
+    afficherMessage("👤 " + question, "user");
+    questionInput.value = "";
+
+    fetch("/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ question })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.answer) {
+            afficherMessage("🤖 " + data.answer, "bot");
+        } else {
+            afficherMessage("❌ Erreur : " + (data.error || "Réponse vide"), "bot");
+        }
+    })
+    .catch(err => {
+        afficherMessage("❌ Erreur réseau", "bot");
+        console.error(err);
+    });
+}
+</script>
+{% endblock %}
