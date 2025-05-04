@@ -1,7 +1,7 @@
 <section id="projets">
     <h3>Projets</h3>
     <ul>
-        {% for projet in cv.projets %}
+        {% for projet in cv.projets | sort(attribute='titre') | sort(attribute='année', reverse=True) %}
             <li>
                 <h4>{{ projet.titre }} <small>({{ projet.année }})</small></h4>
                 <p>{{ projet.description }}</p>
