@@ -1,0 +1,11 @@
+<section id="projets">
+    <h3>Projets</h3>
+    <ul>
+        {% for projet in cv.projets %}
+            <li>
+                <h4>{{ projet.titre }} <small>({{ projet.année }})</small></h4>
+                <p>{{ projet.description }}</p>
+            </li>
+        {% endfor %}
+    </ul>
+</section>
