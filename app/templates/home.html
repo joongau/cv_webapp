@@ -2,11 +2,30 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Mon CV</title>
+    <title>{{ cv.nom }} - CV</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <h1>Bonjour, je suis [Ton Nom]</h1>
-    <p>Bienvenue sur mon CV en ligne.</p>
+    <h1>{{ cv.nom }}</h1>
+    <h2>{{ cv.titre }}</h2>
+    <p>{{ cv.profil }}</p>
+
+    <h3>Expériences professionnelles</h3>
+    <ul>
+        {% for exp in cv.experiences %}
+            <li>
+                <strong>{{ exp.poste }}</strong> chez <em>{{ exp.entreprise }}</em><br>
+                <small>{{ exp.periode }}</small><br>
+                {{ exp.description }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Compétences</h3>
+    <ul>
+        {% for skill in cv.competences %}
+            <li>{{ skill }}</li>
+        {% endfor %}
+    </ul>
 </body>
 </html>
