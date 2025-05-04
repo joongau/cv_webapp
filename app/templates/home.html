@@ -27,5 +27,26 @@
             <li>{{ skill }}</li>
         {% endfor %}
     </ul>
+
+    <h3>Formations</h3>
+    <ul>
+        {% for formation in cv.formations %}
+            <li>
+                <strong>{{ formation.diplome }}</strong><br>
+                {{ formation.lieu }}<br>
+                <small>{{ formation.periode }}</small><br>
+                {% if formation.description %}
+                    {{ formation.description }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Contact</h3>
+    <ul>
+        <li><strong>Téléphone :</strong> {{ cv.contact.téléphone }}</li>
+        <li><strong>Email :</strong> {{ cv.contact.email }}</li>
+        <li><strong>Adresse :</strong> {{ cv.contact.adresse }}</li>
+    </ul>
 </body>
 </html>
