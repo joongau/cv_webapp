@@ -29,7 +29,8 @@ def home():
         "competences_comportementales": charger_partie('competences_comportementales.json'),
         "experiences": charger_partie('experiences.json'),
         "formations": charger_partie('formations.json'),
-        "contact": charger_partie('contact.json')
+        "contact": charger_partie('contact.json'),
+        "projets": charger_partie('projets.json'),
     }
 
     return render_template("home.html", cv=cv_data)
@@ -50,6 +51,7 @@ def projets():
     ]
     return render_template("projets.html", projets=projets_data)
 
+
 @main.route('/api/cv')
 def api_cv():
     base_dir = os.path.dirname(os.path.abspath(__file__))
@@ -61,17 +63,11 @@ def api_cv():
         "competences_comportementales": charger_partie('competences_comportementales.json'),
         "experiences": charger_partie('experiences.json'),
         "formations": charger_partie('formations.json'),
-        "contact": charger_partie('contact.json')
+        "contact": charger_partie('contact.json'),
+        "projets": charger_partie('projets.json'),
     }
     return jsonify(cv_data)
 
-@main.route('/api/projets')
-def api_projets():
-    base_dir = os.path.dirname(os.path.abspath(__file__))
-    json_path = os.path.join(base_dir, '../data/projets.json')
-    with open(json_path, 'r', encoding='utf-8') as f:
-        projets_data = json.load(f)
-    return jsonify(projets_data)
 
 @main.route('/cv-js')
 def cv_js():
@@ -175,7 +171,8 @@ def admin_cv():
         "competences_comportementales": charger_partie('competences_comportementales.json'),
         "experiences": charger_partie('experiences.json'),
         "formations": charger_partie('formations.json'),
-        "contact": charger_partie('contact.json')
+        "contact": charger_partie('contact.json'),
+        "projets": charger_partie('projets.json'),
     }
 
     if request.method == 'POST':
@@ -243,6 +240,15 @@ def admin_cv():
                         "description": request.form.get(f"form_description_{i}", "")
                     })
 
+            data["projets"] = []
+            for i in range(10):
+                if f"proj_titre_{i}" in request.form:
+                    data["projets"].append({
+                        "titre": request.form.get(f"proj_titre_{i}", ""),
+                        "description": request.form.get(f"proj_description_{i}", ""),
+                        "année": request.form.get(f"proj_année_{i}", "")
+                    })
+
             with open(os.path.join(cv_dir, 'profil.json'), 'w', encoding='utf-8') as f:
                 json.dump({
                     "nom": data["nom"],
@@ -264,6 +270,9 @@ def admin_cv():
 
             with open(os.path.join(cv_dir, 'contact.json'), 'w', encoding='utf-8') as f:
                 json.dump(data["contact"], f, ensure_ascii=False, indent=2)
+
+            with open(os.path.join(cv_dir, 'projets.json'), 'w', encoding='utf-8') as f:
+                json.dump(data["projets"], f, ensure_ascii=False, indent=2)
 
             flash("✅ CV mis à jour.")
             return redirect(url_for('main.admin_cv'))
@@ -287,7 +296,8 @@ def chatbot():
             "competences_comportementales": charger_partie('competences_comportementales.json'),
             "experiences": charger_partie('experiences.json'),
             "formations": charger_partie('formations.json'),
-            "contact": charger_partie('contact.json')
+            "contact": charger_partie('contact.json'),
+            "projets": charger_partie('projets.json'),
         }
 
         data = request.get_json()
