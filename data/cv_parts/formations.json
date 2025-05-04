@@ -1,8 +1,20 @@
 [
-    {
-      "diplome": "Formations Développeur Full Stack",
-      "lieu": "The Hacking Project (2019), Studi (2020)",
-      "periode": "2019 – 2020",
-      "description": "Ruby, PHP, SQL, JavaScript, bot Discord, landing-page"
-    }
-  ]
+  {
+    "diplome": "Formation Développeur Full Stack",
+    "lieu": "The Hacking Project",
+    "periode": "2019",
+    "description": "Ma première formation en développement web, où j'ai appris les bases du développement front-end et back-end. J'ai acquis des compétences en HTML, CSS, Ruby, JavaScript et découvert des framework comme Ruby on Rails."
+  },
+  {
+    "diplome": "Formation Développeur Web et Mobile",
+    "lieu": "ENI École informatique",
+    "periode": "2020",
+    "description": "J'ai appris à développer des applications web et mobiles, en utilisant des technologies telles que HTML, CSS, JavaScript, PHP et MySQL avec des framework comme Symphony."
+  },
+  {
+    "diplome": "Formation Développeur Web et Mobile",
+    "lieu": "Openclassrooms",
+    "periode": "2021",
+    "description": "J'ai approfondi mes connaissances en développement web et mobile, en me concentrant sur des technologies modernes comme React, Node.js et MongoDB."
+  }
+]

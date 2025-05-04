@@ -1,13 +1,46 @@
 [
-    { "nom": "Intelligence Artificielle", "note": 5 },
-    { "nom": "Automatisation", "note": 5 },
-    { "nom": "Git", "note": 4 },
-    { "nom": "Programmation Web", "note": 4 },
-    { "nom": "Python", "note": 4 },
-    { "nom": "SQL", "note": 4 },
-    { "nom": "API REST", "note": 4 },
-    { "nom": "Flask", "note": 4 },
-    { "nom": "HTML / CSS", "note": 4 },
-    { "nom": "GitHub", "note": 4 },
-    { "nom": "JavaScript", "note": 3 }
-  ]
+  {
+    "nom": "Intelligence Artificielle",
+    "note": 5
+  },
+  {
+    "nom": "Automatisation",
+    "note": 5
+  },
+  {
+    "nom": "Git",
+    "note": 4
+  },
+  {
+    "nom": "Programmation Web",
+    "note": 4
+  },
+  {
+    "nom": "Python",
+    "note": 4
+  },
+  {
+    "nom": "SQL",
+    "note": 4
+  },
+  {
+    "nom": "API REST",
+    "note": 4
+  },
+  {
+    "nom": "Flask",
+    "note": 4
+  },
+  {
+    "nom": "HTML / CSS",
+    "note": 4
+  },
+  {
+    "nom": "GitHub",
+    "note": 4
+  },
+  {
+    "nom": "JavaScript",
+    "note": 3
+  }
+]

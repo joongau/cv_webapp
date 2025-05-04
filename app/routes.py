@@ -35,7 +35,7 @@ def home():
 
     return render_template("home.html", cv=cv_data)
 
-@main.route('/projets')
+@main.route('/partials/projets')
 def projets():
     projets_data = [
         {
