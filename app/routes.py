@@ -4,10 +4,8 @@ import json
 import os
 from flask import jsonify
 from flask import request, redirect, url_for, session, flash
-# Set OpenAI API key in environment before importing OpenAI client
-os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
-from openai import OpenAI
-client = OpenAI()
+# Set OpenAI API key for openai 0.28
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 
@@ -284,7 +282,7 @@ def chatbot():
 
     try:
         cv_data = {
-            **charger_partie('identite.json'),
+            **charger_partie('profil.json'),
             "competences_techniques": charger_partie('competences_techniques.json'),
             "competences_comportementales": charger_partie('competences_comportementales.json'),
             "experiences": charger_partie('experiences.json'),
@@ -352,12 +350,11 @@ def chatbot():
             }
         ]
 
-        response = client.chat.completions.create(
+        response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
             messages=messages
         )
-
-        return jsonify({"answer": response.choices[0].message.content})
+        return jsonify({"answer": response.choices[0].message['content']})
 
     except Exception as e:
         return jsonify({"error": str(e)}), 500
