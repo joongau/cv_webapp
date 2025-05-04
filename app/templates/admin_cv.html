@@ -109,9 +109,35 @@ function previsualiserEtConfirmer() {
     const profil = document.querySelector('[name="profil"]').value;
     const competences = document.querySelector('[name="competences"]').value;
 
-    let message = `📝 Aperçu du CV :\n\nNom : ${nom}\nTitre : ${titre}\nProfil : ${profil}\nCompétences : ${competences}\n\nContinuer la sauvegarde ?`;
-    
-    if (confirm(message)) {
+    let message = `📝 Aperçu du CV :\n\nNom : ${nom}\nTitre : ${titre}\nProfil : ${profil}\nCompétences : ${competences}\n\n`;
+
+    const experiences = document.querySelectorAll("fieldset legend");
+    message += `Expériences :\n`;
+    experiences.forEach((legend, i) => {
+        const fieldset = legend.parentElement;
+        const poste = fieldset.querySelector(`[name="exp_poste_${i}"]`)?.value || "";
+        const entreprise = fieldset.querySelector(`[name="exp_entreprise_${i}"]`)?.value || "";
+        const periode = fieldset.querySelector(`[name="exp_periode_${i}"]`)?.value || "";
+        const description = fieldset.querySelector(`[name="exp_description_${i}"]`)?.value || "";
+        if (poste || entreprise || periode || description) {
+            message += `\n- ${poste} @ ${entreprise} (${periode})\n  ${description}\n`;
+        }
+    });
+
+    message += `\nFormations :\n`;
+    const formations = document.querySelectorAll("fieldset legend");
+    formations.forEach((legend, i) => {
+        const fieldset = legend.parentElement;
+        const diplome = fieldset.querySelector(`[name="form_diplome_${i}"]`)?.value || "";
+        const lieu = fieldset.querySelector(`[name="form_lieu_${i}"]`)?.value || "";
+        const periode = fieldset.querySelector(`[name="form_periode_${i}"]`)?.value || "";
+        const description = fieldset.querySelector(`[name="form_description_${i}"]`)?.value || "";
+        if (diplome || lieu || periode || description) {
+            message += `\n- ${diplome} à ${lieu} (${periode})\n  ${description}\n`;
+        }
+    });
+
+    if (confirm(message + "\n\nContinuer la sauvegarde ?")) {
         document.querySelector('form').submit();
     }
 }
