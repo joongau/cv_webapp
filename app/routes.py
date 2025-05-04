@@ -10,6 +10,10 @@ from openai import OpenAI
 client = OpenAI()
 
 
+
+base_dir = os.path.dirname(os.path.abspath(__file__))
+cv_dir = os.path.join(base_dir, '../data/cv_parts')
+
 main = Blueprint('main', __name__)
 
 def charger_partie(nom_fichier):
@@ -22,7 +26,7 @@ def home():
     cv_dir = os.path.join(base_dir, '../data/cv_parts')
 
     cv_data = {
-        **charger_partie('identite.json'),
+        **charger_partie('profil.json'),
         "competences_techniques": charger_partie('competences_techniques.json'),
         "competences_comportementales": charger_partie('competences_comportementales.json'),
         "experiences": charger_partie('experiences.json'),
@@ -54,7 +58,7 @@ def api_cv():
     cv_dir = os.path.join(base_dir, '../data/cv_parts')
 
     cv_data = {
-        **charger_partie('identite.json'),
+        **charger_partie('profil.json'),
         "competences_techniques": charger_partie('competences_techniques.json'),
         "competences_comportementales": charger_partie('competences_comportementales.json'),
         "experiences": charger_partie('experiences.json'),
@@ -168,7 +172,7 @@ def admin_cv():
     cv_dir = os.path.join(base_dir, '../data/cv_parts')
 
     cv_data = {
-        **charger_partie('identite.json'),
+        **charger_partie('profil.json'),
         "competences_techniques": charger_partie('competences_techniques.json'),
         "competences_comportementales": charger_partie('competences_comportementales.json'),
         "experiences": charger_partie('experiences.json'),
@@ -241,7 +245,7 @@ def admin_cv():
                         "description": request.form.get(f"form_description_{i}", "")
                     })
 
-            with open(os.path.join(cv_dir, 'identite.json'), 'w', encoding='utf-8') as f:
+            with open(os.path.join(cv_dir, 'profil.json'), 'w', encoding='utf-8') as f:
                 json.dump({
                     "nom": data["nom"],
                     "titre": data["titre"],
