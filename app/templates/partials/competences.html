@@ -2,7 +2,15 @@
     <h3>Compétences</h3>
     <ul>
         {% for skill in cv.competences %}
-            <li>{{ skill }}</li>
+            <li>
+                {{ skill.nom }} :
+                {% for _ in range(skill.note) %}
+                    ⭐
+                {% endfor %}
+                {% for _ in range(5 - skill.note) %}
+                    ☆
+                {% endfor %}
+            </li>
         {% endfor %}
     </ul>
 </section>
