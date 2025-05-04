@@ -1,0 +1,12 @@
+<section id="experiences">
+    <h3>Expériences professionnelles</h3>
+    <ul>
+        {% for exp in cv.experiences %}
+            <li>
+                <strong>{{ exp.poste }}</strong> chez <em>{{ exp.entreprise }}</em><br>
+                <small>{{ exp.periode }}</small><br>
+                {{ exp.description }}
+            </li>
+        {% endfor %}
+    </ul>
+</section>

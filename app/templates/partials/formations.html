@@ -1,0 +1,15 @@
+<section id="formations">
+    <h3>Formations</h3>
+    <ul>
+        {% for formation in cv.formations %}
+            <li>
+                <strong>{{ formation.diplome }}</strong><br>
+                {{ formation.lieu }}<br>
+                <small>{{ formation.periode }}</small><br>
+                {% if formation.description %}
+                    {{ formation.description }}
+                {% endif %}
+            </li>
+        {% endfor %}
+    </ul>
+</section>
