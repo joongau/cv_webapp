@@ -49,7 +49,7 @@ def projets():
             "année": "2023 – Aujourd’hui"
         }
     ]
-    return render_template("projets.html", projets=projets_data)
+    return render_template("projets.html", cv={"projets": projets_data})
 
 
 @main.route('/api/cv')
