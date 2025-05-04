@@ -15,6 +15,18 @@
     <label>Titre</label><br>
     <input type="text" name="titre" value="{{ cv.titre }}"><br><br>
 
+    <h3>Contact</h3>
+    <label>Téléphone</label><br>
+    <input type="text" name="contact_téléphone" value="{{ cv.contact.téléphone if cv.contact is defined else '' }}"><br>
+    <label>Email</label><br>
+    <input type="email" name="contact_email" value="{{ cv.contact.email if cv.contact is defined else '' }}"><br>
+    <label>Adresse</label><br>
+    <input type="text" name="contact_adresse" value="{{ cv.contact.adresse if cv.contact is defined else '' }}"><br>
+    <label>LinkedIn</label><br>
+    <input type="url" name="contact_linkedin" value="{{ cv.contact.linkedin if cv.contact is defined else '' }}"><br>
+    <label>GitHub</label><br>
+    <input type="url" name="contact_github" value="{{ cv.contact.github if cv.contact is defined else '' }}"><br><br>
+
     <label>Profil</label><br>
     <textarea name="profil" rows="5">{{ cv.profil }}</textarea><br><br>
 
