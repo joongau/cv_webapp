@@ -4,16 +4,8 @@
   "profil": "Entre fibre commerciale et fibre optique, j’ai toujours eu un pied dans la relation client… et l’autre dans le monde des données. Curieux de nature, j’aime comprendre, structurer et automatiser ce qui peut l’être. Mon quotidien chez Orange m’a appris à écouter, conseiller et anticiper les besoins — aujourd’hui, j’aspire à faire parler les données avec la même finesse.",
   "competences": [
     {
-      "nom": "Git",
-      "note": 4
-    },
-    {
       "nom": "Intelligence Artificielle",
       "note": 5
-    },
-    {
-      "nom": "Programmation Web",
-      "note": 4
     },
     {
       "nom": "Anglais",
@@ -22,34 +14,6 @@
     {
       "nom": "Esprit d'Équipe",
       "note": 5
-    },
-    {
-      "nom": "Python",
-      "note": 4
-    },
-    {
-      "nom": "SQL",
-      "note": 4
-    },
-    {
-      "nom": "API REST",
-      "note": 4
-    },
-    {
-      "nom": "Flask",
-      "note": 4
-    },
-    {
-      "nom": "HTML / CSS",
-      "note": 4
-    },
-    {
-      "nom": "JavaScript",
-      "note": 4
-    },
-    {
-      "nom": "GitHub",
-      "note": 4
     },
     {
       "nom": "Automatisation",
@@ -74,6 +38,42 @@
     {
       "nom": "Pédagogie",
       "note": 5
+    },
+    {
+      "nom": "Git",
+      "note": 4
+    },
+    {
+      "nom": "Programmation Web",
+      "note": 4
+    },
+    {
+      "nom": "Python",
+      "note": 4
+    },
+    {
+      "nom": "SQL",
+      "note": 4
+    },
+    {
+      "nom": "API REST",
+      "note": 4
+    },
+    {
+      "nom": "Flask",
+      "note": 4
+    },
+    {
+      "nom": "HTML / CSS",
+      "note": 4
+    },
+    {
+      "nom": "GitHub",
+      "note": 4
+    },
+    {
+      "nom": "JavaScript",
+      "note": 3
     }
   ],
   "experiences": [
