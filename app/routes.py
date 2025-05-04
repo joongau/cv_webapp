@@ -151,8 +151,28 @@ def admin_cv():
                 "nom": request.form["nom"],
                 "titre": request.form["titre"],
                 "profil": request.form["profil"],
-                "competences": request.form["competences"].split(",")
+                "competences": request.form["competences"].split(","),
+                "experiences": [],
+                "formations": []
             }
+
+            for i in range(10):
+                if f"exp_poste_{i}" in request.form:
+                    data["experiences"].append({
+                        "poste": request.form.get(f"exp_poste_{i}", ""),
+                        "entreprise": request.form.get(f"exp_entreprise_{i}", ""),
+                        "periode": request.form.get(f"exp_periode_{i}", ""),
+                        "description": request.form.get(f"exp_description_{i}", "")
+                    })
+
+            for i in range(10):
+                if f"form_diplome_{i}" in request.form:
+                    data["formations"].append({
+                        "diplome": request.form.get(f"form_diplome_{i}", ""),
+                        "lieu": request.form.get(f"form_lieu_{i}", ""),
+                        "periode": request.form.get(f"form_periode_{i}", ""),
+                        "description": request.form.get(f"form_description_{i}", "")
+                    })
 
             with open(json_path, 'w', encoding='utf-8') as f:
                 json.dump(data, f, ensure_ascii=False, indent=2)
