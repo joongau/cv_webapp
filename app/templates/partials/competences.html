@@ -1,7 +1,7 @@
 <section id="competences">
     <h3>Compétences</h3>
     <ul>
-        {% for skill in cv.competences %}
+        {% for skill in cv.competences | sort(attribute="note", reverse=True) %}
             <li>
                 {{ skill.nom or 'Compétence sans nom' }} :
                 {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
