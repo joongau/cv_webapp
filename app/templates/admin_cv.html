@@ -35,9 +35,11 @@
         {% for comp in cv.competences %}
             <div class="competence-item">
                 <label>Nom</label>
-                <input type="text" name="comp_nom_{{ loop.index0 }}" value="{{ comp.nom }}"><br>
+                <input type="text" name="comp_nom_{{ loop.index0 }}" value="{{ comp.nom }}">
                 <label>Note (1 à 5)</label>
-                <input type="number" name="comp_note_{{ loop.index0 }}" value="{{ comp.note }}" min="1" max="5"><br><br>
+                <input type="number" name="comp_note_{{ loop.index0 }}" value="{{ comp.note }}" min="1" max="5">
+                <button type="button" onclick="supprimerBloc(this)">❌</button>
+                <br><br>
             </div>
         {% endfor %}
     </div>
@@ -194,12 +196,19 @@ function ajouterCompetence() {
     const html = `
         <div class="competence-item">
             <label>Nom</label>
-            <input type="text" name="comp_nom_${index}" value=""><br>
+            <input type="text" name="comp_nom_${index}" value="">
             <label>Note (1 à 5)</label>
-            <input type="number" name="comp_note_${index}" min="1" max="5"><br><br>
+            <input type="number" name="comp_note_${index}" min="1" max="5">
+            <button type="button" onclick="supprimerBloc(this)">❌</button>
+            <br><br>
         </div>
     `;
     container.insertAdjacentHTML("beforeend", html);
+}
+function supprimerBloc(button) {
+    if (confirm("Supprimer cette compétence ?")) {
+        button.closest('.competence-item').remove();
+    }
 }
 </script>
 {% endblock %}

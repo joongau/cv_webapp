@@ -160,14 +160,18 @@ def admin_cv():
                 "experiences": [],
                 "formations": []
             }
-            for i in range(20):
+            i = 0
+            while True:
                 nom = request.form.get(f"comp_nom_{i}")
                 note = request.form.get(f"comp_note_{i}")
+                if nom is None and note is None:
+                    break
                 if nom:
                     data["competences"].append({
                         "nom": nom.strip(),
                         "note": int(note) if note and note.isdigit() else 0
                     })
+                i += 1
 
             data["contact"] = {
                 "téléphone": request.form.get("contact_téléphone", ""),
