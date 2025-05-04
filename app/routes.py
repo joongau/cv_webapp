@@ -109,3 +109,7 @@ def supprimer_projet():
 
     except Exception as e:
         return {"error": str(e)}, 500
+    
+@main.route('/admin/projets')
+def admin_projets():
+    return render_template("admin_projets.html")

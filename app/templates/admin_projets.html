@@ -1,0 +1,75 @@
+{% extends "base.html" %}
+
+{% block title %}Admin - Projets{% endblock %}
+
+{% block content %}
+<h2>Administration des projets</h2>
+
+<table id="table-projets">
+    <thead>
+        <tr>
+            <th>Titre</th>
+            <th>Année</th>
+            <th>Description</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+
+<h3>Ajouter un projet</h3>
+<form id="form-ajout">
+    <input type="text" id="titre" placeholder="Titre" required>
+    <input type="text" id="annee" placeholder="Année" required>
+    <textarea id="description" placeholder="Description" required></textarea>
+    <button type="submit">Ajouter</button>
+</form>
+
+<script>
+function chargerProjets() {
+    fetch("/api/projets")
+        .then(res => res.json())
+        .then(projets => {
+            const tbody = document.querySelector("#table-projets tbody");
+            tbody.innerHTML = "";
+            projets.forEach(projet => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${projet.titre}</td>
+                    <td>${projet.année}</td>
+                    <td>${projet.description}</td>
+                    <td><button onclick="supprimerProjet('${projet.titre}')">🗑️</button></td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+}
+
+function supprimerProjet(titre) {
+    fetch("/api/projets/supprimer", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ titre })
+    }).then(() => chargerProjets());
+}
+
+document.getElementById("form-ajout").addEventListener("submit", function (e) {
+    e.preventDefault();
+    const titre = document.getElementById("titre").value.trim();
+    const annee = document.getElementById("annee").value.trim();
+    const description = document.getElementById("description").value.trim();
+    if (!titre || !annee || !description) return;
+
+    fetch("/api/projets/ajouter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ titre, année: annee, description })
+    }).then(() => {
+        chargerProjets();
+        e.target.reset();
+    });
+});
+
+chargerProjets();
+</script>
+{% endblock %}
