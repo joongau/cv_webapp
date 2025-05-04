@@ -28,10 +28,6 @@
       "note": 4
     },
     {
-      "nom": "Pandas",
-      "note": 3
-    },
-    {
       "nom": "SQL",
       "note": 4
     },
@@ -49,7 +45,7 @@
     },
     {
       "nom": "JavaScript",
-      "note": 3
+      "note": 4
     },
     {
       "nom": "GitHub",
@@ -57,11 +53,11 @@
     },
     {
       "nom": "Automatisation",
-      "note": 4
+      "note": 5
     },
     {
       "nom": "Autonomie",
-      "note": 4
+      "note": 5
     },
     {
       "nom": "Curiosité",
@@ -69,15 +65,15 @@
     },
     {
       "nom": "Capacité d’apprentissage",
-      "note": 4
+      "note": 5
     },
     {
       "nom": "Esprit d’analyse",
-      "note": 4
+      "note": 5
     },
     {
       "nom": "Pédagogie",
-      "note": 4
+      "note": 5
     }
   ],
   "experiences": [
