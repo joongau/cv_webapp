@@ -121,7 +121,7 @@ def admin_projets():
 @main.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
-        if request.form['password'] == 'secret123':
+        if request.form['password'] == os.getenv("ADMIN_PASSWORD"):
             session['logged_in'] = True
             return redirect(url_for('main.admin_projets'))
         else:
