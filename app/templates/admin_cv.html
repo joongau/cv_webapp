@@ -1,5 +1,3 @@
-
-
 {% extends "base.html" %}
 {% block title %}Admin - CV{% endblock %}
 
@@ -22,6 +20,36 @@
 
     <label>Compétences (séparées par des virgules)</label><br>
     <input type="text" name="competences" value="{{ cv.competences | join(', ') }}"><br><br>
+
+    <h3>Expériences</h3>
+    {% for i, exp in enumerate(cv.experiences) %}
+        <fieldset>
+            <legend>Expérience {{ i + 1 }}</legend>
+            <label>Poste</label><br>
+            <input type="text" name="exp_poste_{{ i }}" value="{{ exp.poste }}"><br>
+            <label>Entreprise</label><br>
+            <input type="text" name="exp_entreprise_{{ i }}" value="{{ exp.entreprise }}"><br>
+            <label>Période</label><br>
+            <input type="text" name="exp_periode_{{ i }}" value="{{ exp.periode }}"><br>
+            <label>Description</label><br>
+            <textarea name="exp_description_{{ i }}">{{ exp.description }}</textarea><br><br>
+        </fieldset>
+    {% endfor %}
+
+    <h3>Formations</h3>
+    {% for i, form in enumerate(cv.formations) %}
+        <fieldset>
+            <legend>Formation {{ i + 1 }}</legend>
+            <label>Diplôme</label><br>
+            <input type="text" name="form_diplome_{{ i }}" value="{{ form.diplome }}"><br>
+            <label>Lieu</label><br>
+            <input type="text" name="form_lieu_{{ i }}" value="{{ form.lieu }}"><br>
+            <label>Période</label><br>
+            <input type="text" name="form_periode_{{ i }}" value="{{ form.periode }}"><br>
+            <label>Description</label><br>
+            <textarea name="form_description_{{ i }}">{{ form.description }}</textarea><br><br>
+        </fieldset>
+    {% endfor %}
 
     <button type="submit">💾 Sauvegarder</button>
 </form>
