@@ -151,10 +151,19 @@ def admin_cv():
                 "nom": request.form["nom"],
                 "titre": request.form["titre"],
                 "profil": request.form["profil"],
-                "competences": request.form["competences"].split(","),
+                "competences": [],
                 "experiences": [],
                 "formations": []
             }
+            for i in range(20):
+                nom = request.form.get(f"comp_nom_{i}")
+                note = request.form.get(f"comp_note_{i}")
+                if nom:
+                    data["competences"].append({
+                        "nom": nom.strip(),
+                        "note": int(note) if note and note.isdigit() else 0
+                    })
+
             data["contact"] = {
                 "téléphone": request.form.get("contact_téléphone", ""),
                 "email": request.form.get("contact_email", ""),
