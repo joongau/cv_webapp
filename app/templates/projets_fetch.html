@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Projets dynamiques{% endblock %}
+
+{% block content %}
+<section id="projets-container">
+    <h2>Chargement des projets...</h2>
+</section>
+
+<script>
+fetch("/api/projets")
+    .then(response => response.json())
+    .then(data => {
+        const section = document.getElementById("projets-container");
+        section.innerHTML = `
+            <h2>Mes projets</h2>
+            <ul>
+                ${data.map(p => `
+                    <li>
+                        <h3>${p.titre} <small>(${p.année})</small></h3>
+                        <p>${p.description}</p>
+                    </li>
+                `).join('')}
+            </ul>
+        `;
+    })
+    .catch(() => {
+        document.getElementById("projets-container").innerHTML = "<p>Erreur lors du chargement.</p>";
+    });
+</script>
+{% endblock %}
