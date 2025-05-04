@@ -52,7 +52,19 @@ fetch("/api/projets")
             // Réinitialiser le formulaire
             e.target.reset();
 
-            // 🔜 Option future : POST vers /api/projets/ajouter
+            fetch("/api/projets/ajouter", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(nouveauProjet)
+            })
+            .then(res => {
+                if (!res.ok) throw new Error("Erreur d'enregistrement");
+                return res.json();
+            })
+            .then(data => console.log("✅ Projet enregistré :", data))
+            .catch(err => alert("Erreur serveur : " + err.message));
         });
     })
     .catch(() => {

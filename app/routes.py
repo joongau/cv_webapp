@@ -2,6 +2,8 @@ from flask import Blueprint, render_template
 import json
 import os
 from flask import jsonify
+from flask import request
+
 
 main = Blueprint('main', __name__)
 
@@ -54,3 +56,56 @@ def cv_js():
 @main.route('/projets-js')
 def projets_js():
     return render_template("projets_fetch.html")
+
+
+@main.route('/api/projets/ajouter', methods=['POST'])
+def ajouter_projet():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(base_dir, '../data/projets.json')
+
+    try:
+        # Charger les projets existants
+        with open(json_path, 'r', encoding='utf-8') as f:
+            projets = json.load(f)
+
+        # Récupérer les données du nouveau projet
+        data = request.get_json()
+        if not data:
+            return {"error": "Aucune donnée reçue"}, 400
+
+        projets.append(data)
+
+        # Sauvegarder
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(projets, f, ensure_ascii=False, indent=2)
+
+        return {"message": "Projet ajouté"}, 201
+
+    except Exception as e:
+        return {"error": str(e)}, 500
+
+
+# Nouvelle route DELETE pour supprimer un projet par son titre
+@main.route('/api/projets/supprimer', methods=['DELETE'])
+def supprimer_projet():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(base_dir, '../data/projets.json')
+
+    try:
+        with open(json_path, 'r', encoding='utf-8') as f:
+            projets = json.load(f)
+
+        data = request.get_json()
+        titre = data.get("titre")
+        if not titre:
+            return {"error": "Titre requis"}, 400
+
+        projets = [p for p in projets if p["titre"] != titre]
+
+        with open(json_path, 'w', encoding='utf-8') as f:
+            json.dump(projets, f, ensure_ascii=False, indent=2)
+
+        return {"message": f"Projet '{titre}' supprimé"}, 200
+
+    except Exception as e:
+        return {"error": str(e)}, 500
