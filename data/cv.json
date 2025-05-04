@@ -2,41 +2,13 @@
   "nom": "Jonathan Gaultier",
   "titre": "Conseiller Commercial & Futur Data Engineer",
   "profil": "Entre fibre commerciale et fibre optique, j’ai toujours eu un pied dans la relation client… et l’autre dans le monde des données. Curieux de nature, j’aime comprendre, structurer et automatiser ce qui peut l’être. Mon quotidien chez Orange m’a appris à écouter, conseiller et anticiper les besoins — aujourd’hui, j’aspire à faire parler les données avec la même finesse.",
-  "competences": [
+  "competences_techniques": [
     {
       "nom": "Intelligence Artificielle",
       "note": 5
     },
     {
-      "nom": "Anglais",
-      "note": 5
-    },
-    {
-      "nom": "Esprit d'Équipe",
-      "note": 5
-    },
-    {
       "nom": "Automatisation",
-      "note": 5
-    },
-    {
-      "nom": "Autonomie",
-      "note": 5
-    },
-    {
-      "nom": "Curiosité",
-      "note": 5
-    },
-    {
-      "nom": "Capacité d’apprentissage",
-      "note": 5
-    },
-    {
-      "nom": "Esprit d’analyse",
-      "note": 5
-    },
-    {
-      "nom": "Pédagogie",
       "note": 5
     },
     {
@@ -74,6 +46,36 @@
     {
       "nom": "JavaScript",
       "note": 3
+    }
+  ],
+  "competences_comportementales": [
+    {
+      "nom": "Anglais",
+      "note": 5
+    },
+    {
+      "nom": "Esprit d'Équipe",
+      "note": 5
+    },
+    {
+      "nom": "Autonomie",
+      "note": 5
+    },
+    {
+      "nom": "Curiosité",
+      "note": 5
+    },
+    {
+      "nom": "Capacité d’apprentissage",
+      "note": 5
+    },
+    {
+      "nom": "Esprit d’analyse",
+      "note": 5
+    },
+    {
+      "nom": "Pédagogie",
+      "note": 5
     }
   ],
   "experiences": [
