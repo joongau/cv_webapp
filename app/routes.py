@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template
 import json
 import os
+from flask import jsonify
 
 main = Blueprint('main', __name__)
 
@@ -29,3 +30,19 @@ def projets():
         }
     ]
     return render_template("projets.html", projets=projets_data)
+
+@main.route('/api/cv')
+def api_cv():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(base_dir, '../data/cv.json')
+    with open(json_path, 'r', encoding='utf-8') as f:
+        cv_data = json.load(f)
+    return jsonify(cv_data)
+
+@main.route('/api/projets')
+def api_projets():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(base_dir, '../data/projets.json')
+    with open(json_path, 'r', encoding='utf-8') as f:
+        projets_data = json.load(f)
+    return jsonify(projets_data)
