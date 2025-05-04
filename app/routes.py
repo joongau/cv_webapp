@@ -1,3 +1,4 @@
+import openai
 from flask import Blueprint, render_template
 import json
 import os
@@ -203,3 +204,47 @@ def admin_cv():
         cv_data = json.load(f)
 
     return render_template("admin_cv.html", cv=cv_data)
+
+
+# Nouvelle route /api/chat pour répondre aux questions sur le CV via OpenAI
+@main.route('/api/chat', methods=['POST'])
+def chatbot():
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    cv_path = os.path.join(base_dir, '../data/cv.json')
+
+    try:
+        with open(cv_path, 'r', encoding='utf-8') as f:
+            cv_data = json.load(f)
+
+        data = request.get_json()
+        question = data.get("question")
+
+        if not question:
+            return jsonify({"error": "Question manquante"}), 400
+
+        openai.api_key = os.getenv("OPENAI_API_KEY")
+
+        messages = [
+            {
+                "role": "system",
+                "content": "Tu es un assistant qui répond uniquement en te basant sur le CV de Jonathan fourni en JSON. Sois clair, professionnel, concis et précis."
+            },
+            {
+                "role": "user",
+                "content": f"Voici le CV en JSON : {json.dumps(cv_data, ensure_ascii=False)}"
+            },
+            {
+                "role": "user",
+                "content": f"Question : {question}"
+            }
+        ]
+
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=messages
+        )
+
+        return jsonify({"answer": response.choices[0].message['content']})
+
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500

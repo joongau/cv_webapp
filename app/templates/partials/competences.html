@@ -3,11 +3,12 @@
     <ul>
         {% for skill in cv.competences %}
             <li>
-                {{ skill.nom }} :
-                {% for _ in range(skill.note) %}
+                {{ skill.nom or 'Compétence sans nom' }} :
+                {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
+                {% for _ in range(note) %}
                     ⭐
                 {% endfor %}
-                {% for _ in range(5 - skill.note) %}
+                {% for _ in range(5 - note) %}
                     ☆
                 {% endfor %}
             </li>
