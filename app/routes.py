@@ -4,6 +4,8 @@ import json
 import os
 from flask import jsonify
 from flask import request, redirect, url_for, session, flash
+# Set OpenAI API key in environment before importing OpenAI client
+os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
 from openai import OpenAI
 client = OpenAI()
 
