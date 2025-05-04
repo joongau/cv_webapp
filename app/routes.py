@@ -152,7 +152,6 @@ def admin_cv():
 
     with open(json_path, 'r', encoding='utf-8') as f:
         cv_data = json.load(f)
-    cv_competences = cv_data.get("competences", [])
 
     if request.method == 'POST':
         try:
@@ -160,24 +159,37 @@ def admin_cv():
                 "nom": request.form["nom"],
                 "titre": request.form["titre"],
                 "profil": request.form["profil"],
-                "competences": cv_competences.copy(),
+                "competences_techniques": [],
+                "competences_comportementales": [],
                 "experiences": [],
                 "formations": []
             }
+            # Compétences techniques
             i = 0
             while True:
-                nom = request.form.get(f"comp_nom_{i}")
-                note = request.form.get(f"comp_note_{i}")
+                nom = request.form.get(f"comptech_nom_{i}")
+                note = request.form.get(f"comptech_note_{i}")
                 if nom is None and note is None:
                     break
                 if nom:
-                    nouvelle = {
+                    data["competences_techniques"].append({
                         "nom": nom.strip(),
                         "note": int(note) if note and note.isdigit() else 0
-                    }
-                    # Évite les doublons
-                    if all(nouvelle["nom"] != c["nom"] for c in data["competences"]):
-                        data["competences"].append(nouvelle)
+                    })
+                i += 1
+
+            # Compétences comportementales
+            i = 0
+            while True:
+                nom = request.form.get(f"compsoft_nom_{i}")
+                note = request.form.get(f"compsoft_note_{i}")
+                if nom is None and note is None:
+                    break
+                if nom:
+                    data["competences_comportementales"].append({
+                        "nom": nom.strip(),
+                        "note": int(note) if note and note.isdigit() else 0
+                    })
                 i += 1
 
             data["contact"] = {
