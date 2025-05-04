@@ -134,3 +134,36 @@ def login():
 def logout():
     session.pop('logged_in', None)
     return redirect(url_for('main.login'))
+
+
+# Nouvelle route pour éditer les informations du CV
+@main.route('/admin/cv', methods=['GET', 'POST'])
+def admin_cv():
+    if not session.get('logged_in'):
+        return redirect(url_for('main.login'))
+
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+    json_path = os.path.join(base_dir, '../data/cv.json')
+
+    if request.method == 'POST':
+        try:
+            data = {
+                "nom": request.form["nom"],
+                "titre": request.form["titre"],
+                "profil": request.form["profil"],
+                "competences": request.form["competences"].split(",")
+            }
+
+            with open(json_path, 'w', encoding='utf-8') as f:
+                json.dump(data, f, ensure_ascii=False, indent=2)
+
+            flash("✅ CV mis à jour.")
+            return redirect(url_for('main.admin_cv'))
+
+        except Exception as e:
+            flash(f"Erreur : {e}")
+
+    with open(json_path, 'r', encoding='utf-8') as f:
+        cv_data = json.load(f)
+
+    return render_template("admin_cv.html", cv=cv_data)
