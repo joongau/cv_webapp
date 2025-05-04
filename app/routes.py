@@ -150,13 +150,17 @@ def admin_cv():
     base_dir = os.path.dirname(os.path.abspath(__file__))
     json_path = os.path.join(base_dir, '../data/cv.json')
 
+    with open(json_path, 'r', encoding='utf-8') as f:
+        cv_data = json.load(f)
+    cv_competences = cv_data.get("competences", [])
+
     if request.method == 'POST':
         try:
             data = {
                 "nom": request.form["nom"],
                 "titre": request.form["titre"],
                 "profil": request.form["profil"],
-                "competences": [],
+                "competences": cv_competences.copy(),
                 "experiences": [],
                 "formations": []
             }
@@ -167,10 +171,13 @@ def admin_cv():
                 if nom is None and note is None:
                     break
                 if nom:
-                    data["competences"].append({
+                    nouvelle = {
                         "nom": nom.strip(),
                         "note": int(note) if note and note.isdigit() else 0
-                    })
+                    }
+                    # Évite les doublons
+                    if all(nouvelle["nom"] != c["nom"] for c in data["competences"]):
+                        data["competences"].append(nouvelle)
                 i += 1
 
             data["contact"] = {
@@ -207,9 +214,6 @@ def admin_cv():
 
         except Exception as e:
             flash(f"Erreur : {e}")
-
-    with open(json_path, 'r', encoding='utf-8') as f:
-        cv_data = json.load(f)
 
     return render_template("admin_cv.html", cv=cv_data)
 

@@ -26,58 +26,6 @@
     {
       "nom": "Python",
       "note": 4
-    },
-    {
-      "nom": "Pandas",
-      "note": 3
-    },
-    {
-      "nom": "SQL",
-      "note": 4
-    },
-    {
-      "nom": "API REST",
-      "note": 4
-    },
-    {
-      "nom": "Flask",
-      "note": 4
-    },
-    {
-      "nom": "HTML / CSS",
-      "note": 4
-    },
-    {
-      "nom": "JavaScript",
-      "note": 3
-    },
-    {
-      "nom": "GitHub",
-      "note": 4
-    },
-    {
-      "nom": "Automatisation",
-      "note": 4
-    },
-    {
-      "nom": "Autonomie",
-      "note": 4
-    },
-    {
-      "nom": "Curiosité",
-      "note": 5
-    },
-    {
-      "nom": "Capacité d’apprentissage",
-      "note": 4
-    },
-    {
-      "nom": "Esprit d’analyse",
-      "note": 4
-    },
-    {
-      "nom": "Pédagogie",
-      "note": 4
     }
   ],
   "experiences": [
