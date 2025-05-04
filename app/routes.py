@@ -46,3 +46,7 @@ def api_projets():
     with open(json_path, 'r', encoding='utf-8') as f:
         projets_data = json.load(f)
     return jsonify(projets_data)
+
+@main.route('/cv-js')
+def cv_js():
+    return render_template("cv_fetch.html")

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}CV (dynamique via API){% endblock %}
+
+{% block content %}
+<section id="cv-container">
+    <h2>Chargement du CV...</h2>
+</section>
+
+<script>
+fetch("/api/cv")
+    .then(response => response.json())
+    .then(cv => {
+        const section = document.getElementById("cv-container");
+        section.innerHTML = `
+            <h2>${cv.nom}</h2>
+            <h3>${cv.titre}</h3>
+            <p>${cv.profil}</p>
+            <h4>Compétences</h4>
+            <ul>${cv.competences.map(c => `<li>${c}</li>`).join('')}</ul>
+        `;
+    })
+    .catch(() => {
+        document.getElementById("cv-container").innerHTML = "<p>Erreur de chargement.</p>";
+    });
+</script>
+{% endblock %}
