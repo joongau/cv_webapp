@@ -30,20 +30,35 @@
     <label>Profil</label><br>
     <textarea name="profil" rows="5">{{ cv.profil }}</textarea><br><br>
 
-    <h3>Compétences</h3>
-    <div id="competences-container">
-        {% for comp in cv.competences %}
+    <h3>Compétences techniques</h3>
+    <div id="competences-techniques-container">
+        {% for comp in cv.competences_techniques %}
             <div class="competence-item">
                 <label>Nom</label>
-                <input type="text" name="comp_nom_{{ loop.index0 }}" value="{{ comp.nom }}">
+                <input type="text" name="comptech_nom_{{ loop.index0 }}" value="{{ comp.nom }}">
                 <label>Note (1 à 5)</label>
-                <input type="number" name="comp_note_{{ loop.index0 }}" value="{{ comp.note }}" min="1" max="5">
+                <input type="number" name="comptech_note_{{ loop.index0 }}" value="{{ comp.note }}" min="1" max="5">
                 <button type="button" onclick="supprimerBloc(this)">❌</button>
                 <br><br>
             </div>
         {% endfor %}
     </div>
-    <button type="button" onclick="ajouterCompetence()">➕ Ajouter une compétence</button>
+    <button type="button" onclick="ajouterCompetence('techniques')">➕ Ajouter une compétence technique</button>
+
+    <h3>Compétences comportementales</h3>
+    <div id="competences-comportementales-container">
+        {% for comp in cv.competences_comportementales %}
+            <div class="competence-item">
+                <label>Nom</label>
+                <input type="text" name="compsoft_nom_{{ loop.index0 }}" value="{{ comp.nom }}">
+                <label>Note (1 à 5)</label>
+                <input type="number" name="compsoft_note_{{ loop.index0 }}" value="{{ comp.note }}" min="1" max="5">
+                <button type="button" onclick="supprimerBloc(this)">❌</button>
+                <br><br>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="button" onclick="ajouterCompetence('comportementales')">➕ Ajouter une compétence comportementale</button>
 
     <h3>Expériences</h3>
     {% for exp in cv.experiences %}
@@ -138,12 +153,25 @@ function previsualiserEtConfirmer() {
 
     let message = `📝 Aperçu du CV :\n\nNom : ${nom}\nTitre : ${titre}\nProfil : ${profil}\n`;
 
-    const competences = document.querySelectorAll(".competence-item");
-    if (competences.length > 0) {
-        message += `Compétences :\n`;
-        competences.forEach((comp, i) => {
-            const nom = comp.querySelector(`[name="comp_nom_${i}"]`)?.value || "";
-            const note = comp.querySelector(`[name="comp_note_${i}"]`)?.value || "";
+    const competencesTechniques = document.querySelectorAll("#competences-techniques-container .competence-item");
+    if (competencesTechniques.length > 0) {
+        message += `Compétences techniques :\n`;
+        competencesTechniques.forEach((comp, i) => {
+            const nom = comp.querySelector(`[name="comptech_nom_${i}"]`)?.value || "";
+            const note = comp.querySelector(`[name="comptech_note_${i}"]`)?.value || "";
+            if (nom || note) {
+                message += `\n- ${nom} (Note: ${note})\n`;
+            }
+        });
+        message += `\n`;
+    }
+
+    const competencesComportementales = document.querySelectorAll("#competences-comportementales-container .competence-item");
+    if (competencesComportementales.length > 0) {
+        message += `Compétences comportementales :\n`;
+        competencesComportementales.forEach((comp, i) => {
+            const nom = comp.querySelector(`[name="compsoft_nom_${i}"]`)?.value || "";
+            const note = comp.querySelector(`[name="compsoft_note_${i}"]`)?.value || "";
             if (nom || note) {
                 message += `\n- ${nom} (Note: ${note})\n`;
             }
@@ -190,15 +218,17 @@ function confirmerEtSupprimer(button) {
 }
 </script>
 <script>
-function ajouterCompetence() {
-    const container = document.getElementById("competences-container");
-    const index = container.querySelectorAll(".competence-item").length;
+function ajouterCompetence(type) {
+    const containerId = type === 'techniques' ? 'competences-techniques-container' : 'competences-comportementales-container';
+    const prefix = type === 'techniques' ? 'comptech' : 'compsoft';
+    const container = document.getElementById(containerId);
+    const index = container.querySelectorAll('.competence-item').length;
     const html = `
         <div class="competence-item">
             <label>Nom</label>
-            <input type="text" name="comp_nom_${index}" value="">
+            <input type="text" name="${prefix}_nom_${index}" value="">
             <label>Note (1 à 5)</label>
-            <input type="number" name="comp_note_${index}" min="1" max="5">
+            <input type="number" name="${prefix}_note_${index}" min="1" max="5">
             <button type="button" onclick="supprimerBloc(this)">❌</button>
             <br><br>
         </div>
