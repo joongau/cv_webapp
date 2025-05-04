@@ -50,3 +50,7 @@ def api_projets():
 @main.route('/cv-js')
 def cv_js():
     return render_template("cv_fetch.html")
+
+@main.route('/projets-js')
+def projets_js():
+    return render_template("projets_fetch.html")
