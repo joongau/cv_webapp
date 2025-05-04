@@ -1,0 +1,15 @@
+# Environnements virtuels
+venv/
+__pycache__/
+
+# Fichiers Python temporaires
+*.py[cod]
+*.log
+
+# Configs locales / secrets
+.env
+
+# Données spécifiques à l’IDE
+.vscode/
+.idea/
+.DS_Store

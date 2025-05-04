@@ -8,12 +8,13 @@
   },
   {
     "titre": "Clairdelunestudio.com",
-    "description": "E-commerce de produits artisanaux personnalisés (affiches avec dorure), développé sur Shopify.",
-    "année": "2023 – Aujourd’hui"
+    "description": "E-commerce de produits artisanaux personnalisés (affiches avec dorure), développé sur Shopify. J'ai conçu le site, géré le marketing et la logistique. J'ai appris à créer une boutique en ligne, à gérer les stocks et à optimiser le référencement naturel (SEO). J'ai également acquis des compétences en marketing digital et en gestion de projet.",
+    "année": "2023 – Aujourd’hui",
+    "lien": "https://clairdelunestudio.com"
   },
   {
     "titre": "CV Interactif (Ce CV en ligne que vous consultez)",
-    "description": "Développement d’un CV interactif et dynamique, avec des animations et un design responsive. Il intègre également un chatbot IA avec ChatGPT pour répondre aux questions des recruteurs.",
+    "description": "Développement d’un CV interactif et dynamique, avec des animations et un design responsive. Il intègre également un chatbot IA avec ChatGPT pour répondre aux questions des recruteurs. J'ai utilisé des technologies modernes telles que Python, CSS et JavaScript pour créer une expérience utilisateur fluide et engageante. Ce projet m'a permis de mettre en pratique mes compétences en développement front-end et d'explorer de nouvelles technologies.",
     "année": "2025"
   }
 ]
