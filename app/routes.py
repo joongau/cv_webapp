@@ -6,22 +6,40 @@ main = Blueprint('main', __name__)
 def home():
     cv_data = {
         "nom": "Jonathan Gaultier",
-        "titre": "Conseiller commercial & futur Data Engineer",
-        "profil": "Passionné par la tech, j'accompagne les clients chez Orange et me forme à la Data.",
+        "titre": "Conseiller Commercial & Futur Data Engineer",
+        "profil": "Entre fibre commerciale et fibre optique, j’ai toujours eu un pied dans la relation client… et l’autre dans le monde des données. Curieux de nature, j’aime comprendre, structurer et automatiser ce qui peut l’être. Mon quotidien chez Orange m’a appris à écouter, conseiller et anticiper les besoins — aujourd’hui, j’aspire à faire parler les données avec la même finesse. En route vers la Data Engineering, je veux relier l’humain à la technique pour créer des solutions aussi utiles qu’intelligentes, toujours au service de l’expérience client.",
         "experiences": [
             {
-                "poste": "Conseiller commercial",
-                "entreprise": "Orange",
-                "periode": "2019 - aujourd’hui",
-                "description": "Conseil, vente et fidélisation des clients en boutique."
+                "poste": "Conseiller Commercial",
+                "entreprise": "Orange Store",
+                "periode": "2021 – Aujourd’hui",
+                "description": "Vente et conseils sur les différents produits et services proposés par Orange."
             },
             {
-                "poste": "Illustrateur indépendant",
-                "entreprise": "Freelance",
-                "periode": "2022 - aujourd’hui",
-                "description": "Création de visuels artistiques et vente en ligne."
+                "poste": "Auto-Entrepreneur E-Commerce",
+                "entreprise": "Clairdelunestudio.com",
+                "periode": "2023 – Aujourd’hui",
+                "description": "Vente d’affiches et produits personnalisés artisanaux sur une boutique Shopify."
             }
         ],
-        "competences": ["Python", "SQL", "Flask", "GitHub", "Vente", "Conseil client"]
+        "formations": [
+            {
+                "diplome": "BAC Scientifique, spé Physique-Chimie",
+                "lieu": "Lycée Marie Joseph, Trouville",
+                "periode": "2007 – 2010"
+            },
+            {
+                "diplome": "Formations Développeur Full Stack",
+                "lieu": "The Hacking Project (2019), Studi (2020)",
+                "periode": "2019 – 2020",
+                "description": "Ruby, PHP, SQL, JavaScript, bot Discord, landing-page"
+            }
+        ],
+        "competences": ["Programmation Web", "Git", "IA", "Anglais", "Esprit d’équipe"],
+        "contact": {
+            "téléphone": "06.51.37.32.77",
+            "email": "gaultier.jonathan@icloud.com",
+            "adresse": "1678 route de la gare, 27230 Saint Mards de Fresne"
+        }
     }
     return render_template("home.html", cv=cv_data)
