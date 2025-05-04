@@ -2,7 +2,7 @@ from flask import Blueprint, render_template
 import json
 import os
 from flask import jsonify
-from flask import request
+from flask import request, redirect, url_for, session, flash
 
 
 main = Blueprint('main', __name__)
@@ -112,4 +112,25 @@ def supprimer_projet():
     
 @main.route('/admin/projets')
 def admin_projets():
+    if not session.get('logged_in'):
+        return redirect(url_for('main.login'))
     return render_template("admin_projets.html")
+
+
+# Route de connexion (login)
+@main.route('/login', methods=['GET', 'POST'])
+def login():
+    if request.method == 'POST':
+        if request.form['password'] == 'secret123':
+            session['logged_in'] = True
+            return redirect(url_for('main.admin_projets'))
+        else:
+            flash('Mot de passe incorrect')
+    return render_template('login.html')
+
+
+# Route de déconnexion (logout)
+@main.route('/logout')
+def logout():
+    session.pop('logged_in', None)
+    return redirect(url_for('main.login'))
