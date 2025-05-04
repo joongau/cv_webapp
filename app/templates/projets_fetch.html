@@ -14,6 +14,13 @@ fetch("/api/projets")
         const section = document.getElementById("projets-container");
         section.innerHTML = `
             <h2>Mes projets</h2>
+            <form id="ajout-projet-form">
+                <h3>Ajouter un projet</h3>
+                <input type="text" id="titre" placeholder="Titre" required>
+                <input type="text" id="annee" placeholder="Année" required>
+                <textarea id="description" placeholder="Description" required></textarea>
+                <button type="submit">Ajouter</button>
+            </form>
             <ul>
                 ${data.map(p => `
                     <li>
@@ -23,6 +30,10 @@ fetch("/api/projets")
                 `).join('')}
             </ul>
         `;
+        document.getElementById("ajout-projet-form").addEventListener("submit", function(e) {
+            e.preventDefault();
+            alert("Le formulaire fonctionne (envoi non encore connecté à l'API).");
+        });
     })
     .catch(() => {
         document.getElementById("projets-container").innerHTML = "<p>Erreur lors du chargement.</p>";
