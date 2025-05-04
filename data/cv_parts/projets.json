@@ -1,8 +1,10 @@
 [
   {
     "titre": "Mobrange",
-    "description": "Application web de recommandation de smartphones basée sur les habitudes de vie des clients. Combine mes connaissances terrain et l’IA.",
-    "année": "2025"
+    "description": "Développement d'une application de recommandation de smartphone en fonction de l'utilisation et des besoins de l'utilisateur. L'application propose des smartphones adaptés aux besoins de l'utilisateur, en tenant compte de ses préférences et de son budget. Elle utilise des algorithmes d'intelligence artificielle pour analyser les données d'utilisation et fournir des recommandations personnalisées. Il s'agit d'un projet personnel qui est bientôt prêt à être potentiellement mis en test.",
+    "année": "2025",
+    "lien": "https://assistant-smartphones-orange-f4ca732ecf1a.herokuapp.com"
+
   },
   {
     "titre": "Clairdelunestudio.com",

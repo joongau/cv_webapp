@@ -35,21 +35,6 @@ def home():
 
     return render_template("home.html", cv=cv_data)
 
-@main.route('/partials/projets')
-def projets():
-    projets_data = [
-        {
-            "titre": "Mobrange",
-            "description": "Application web de recommandation de smartphones basée sur les habitudes de vie des clients. Combine mes connaissances terrain et l’IA.",
-            "année": "2025"
-        },
-        {
-            "titre": "Clairdelunestudio.com",
-            "description": "E-commerce de produits artisanaux personnalisés (affiches avec dorure), développé sur Shopify.",
-            "année": "2023 – Aujourd’hui"
-        }
-    ]
-    return render_template("projets.html", cv={"projets": projets_data})
 
 
 @main.route('/api/cv')
@@ -246,7 +231,8 @@ def admin_cv():
                     data["projets"].append({
                         "titre": request.form.get(f"proj_titre_{i}", ""),
                         "description": request.form.get(f"proj_description_{i}", ""),
-                        "année": request.form.get(f"proj_année_{i}", "")
+                        "année": request.form.get(f"proj_année_{i}", ""),
+                        "lien": request.form.get(f"proj_lien_{i}", "")
                     })
 
             with open(os.path.join(cv_dir, 'profil.json'), 'w', encoding='utf-8') as f:

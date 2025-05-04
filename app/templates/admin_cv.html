@@ -103,7 +103,10 @@
                 <label>Année</label>
                 <input type="text" name="proj_année_{{ loop.index0 }}" value="{{ proj.année }}"><br>
                 <label>Description</label><br>
-                <textarea name="proj_description_{{ loop.index0 }}">{{ proj.description }}</textarea><br><br>
+                <textarea name="proj_description_{{ loop.index0 }}">{{ proj.description }}</textarea><br>
+                <label>Lien</label>
+                <input type="url" name="proj_lien_{{ loop.index0 }}" value="{{ proj.lien or '' }}"><br>
+                <br>
                 <button type="button" onclick="confirmerEtSupprimer(this)">❌ Supprimer ce projet</button>
             </div>
         {% endfor %}
@@ -269,7 +272,10 @@ function ajouterProjet() {
             <label>Année</label>
             <input type="text" name="proj_année_${index}" value=""><br>
             <label>Description</label><br>
-            <textarea name="proj_description_${index}"></textarea><br><br>
+            <textarea name="proj_description_${index}"></textarea><br>
+            <label>Lien</label>
+            <input type="url" name="proj_lien_${index}" value=""><br>
+            <br>
             <button type="button" onclick="confirmerEtSupprimer(this)">❌ Supprimer ce projet</button>
         </div>
     `;

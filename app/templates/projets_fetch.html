@@ -19,6 +19,8 @@ fetch("/api/projets")
                 <input type="text" id="titre" placeholder="Titre" required>
                 <input type="text" id="annee" placeholder="Année" required>
                 <textarea id="description" placeholder="Description" required></textarea>
+                <input type="text" id="lien" placeholder="Lien (facultatif)">
+                
                 <button type="submit">Ajouter</button>
             </form>
             <ul>
@@ -26,6 +28,7 @@ fetch("/api/projets")
                     <li>
                         <h3>${p.titre} <small>(${p.année})</small></h3>
                         <p>${p.description}</p>
+                        ${p.lien ? `<p><a href="${p.lien}" target="_blank">Lien</a></p>` : ""}
                     </li>
                 `).join('')}
             </ul>
@@ -36,16 +39,19 @@ fetch("/api/projets")
             const titre = document.getElementById("titre").value.trim();
             const annee = document.getElementById("annee").value.trim();
             const description = document.getElementById("description").value.trim();
+            const lien = document.getElementById("lien").value.trim();
 
             if (!titre || !annee || !description) return alert("Tous les champs sont obligatoires.");
 
             const nouveauProjet = { titre, année: annee, description };
+            if (lien) nouveauProjet.lien = lien;
 
             const liste = document.querySelector("#projets-container ul");
             const li = document.createElement("li");
             li.innerHTML = `
                 <h3>${nouveauProjet.titre} <small>(${nouveauProjet.année})</small></h3>
                 <p>${nouveauProjet.description}</p>
+                ${lien ? `<p><a href="${lien}" target="_blank">Lien</a></p>` : ""}
             `;
             liste.appendChild(li);
 

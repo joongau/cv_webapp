@@ -5,6 +5,9 @@
             <li>
                 <h4>{{ projet.titre }} <small>({{ projet.année }})</small></h4>
                 <p>{{ projet.description }}</p>
+                {% if projet.lien %}
+                – <a href="{{ projet.lien }}" target="_blank">Voir</a>
+              {% endif %}
             </li>
         {% endfor %}
     </ul>

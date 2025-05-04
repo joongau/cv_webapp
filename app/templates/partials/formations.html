@@ -1,7 +1,7 @@
 <section id="formations" class="cv-section">
     <h3>Formations</h3>
     <ul>
-        {% for formation in cv.formations %}
+        {% for formation in cv.formations | sort(attribute='periode', reverse=True) %}
             <li>
                 <strong>{{ formation.diplome }}</strong><br>
                 {{ formation.lieu }}<br>

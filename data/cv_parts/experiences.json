@@ -3,12 +3,36 @@
     "poste": "Conseiller Commercial",
     "entreprise": "Orange Store",
     "periode": "2021 – Aujourd’hui",
-    "description": "Vente et conseils sur les différents produits et services proposés par Orange."
+    "description": "Je conseille les clients sur les produits et services de télécommunications, en mettant l'accent sur la satisfaction client et la fidélisation. J'ai développé des compétences en vente, en communication et en gestion de la relation client. J'ai également appris à travailler en équipe et à gérer des situations stressantes."
   },
   {
     "poste": "Fondateur Boutique E-Commerce",
     "entreprise": "Clairdelunestudio.com",
     "periode": "2023 – Aujourd’hui",
-    "description": "Vente d’affiches et produits personnalisés artisanaux sur une boutique Shopify."
+    "description": "J'ai fondé ma propre boutique e-commerce, où je vends des produits artisanaux personnalisés. J'ai appris à gérer un projet de A à Z, de la conception à la mise en ligne, en passant par le marketing et la gestion des stocks. J'ai également acquis des compétences en SEO et en marketing digital."
+  },
+  {
+    "poste": "Stage en Startup comme développeur Web",
+    "entreprise": "Noob2Pro",
+    "periode": "2020",
+    "description": "J'ai pu développer le site web de départ d'une startup qui consistait à créer une communauté de joueurs autours de jeux compétitifs et éviter la toxicité. J'ai appris à travailler en équipe, à gérer des projets et à respecter des délais serrés. J'ai également acquis des compétences pour créer un bot Discord automatisé pour générer des salons de discussions pour les tournois compétitifs tout seul."
+  },
+  {
+    "poste": "Développeur Web Junior",
+    "entreprise": "The Hacking Project",
+    "periode": "2019 – 2020",
+    "description": "Développement d'applications web en équipe, participation à des projets open source et apprentissage des bonnes pratiques de développement."
+  },
+  {
+    "poste": "Responsable accueil des artistes de rue",
+    "entreprise": "Éclats de Rue à Caen",
+    "periode": "2017",
+    "description": "Gestion de l'accueil des artistes, organisation de la logistique et coordination avec les équipes techniques. J'ai appris à travailler sous pression et à gérer des situations imprévues."
+  },
+  {
+    "poste": "Manutentionnaire en Usine",
+    "entreprise": "Tipiak Pont l'Évêque",
+    "periode": "2012 – 2016",
+    "description": "Travail en équipe sur des lignes de production, respect des normes de sécurité et de qualité. J'ai acquis une bonne résistance physique et une capacité à travailler dans un environnement dynamique et difficile."
   }
 ]
