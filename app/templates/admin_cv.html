@@ -30,8 +30,18 @@
     <label>Profil</label><br>
     <textarea name="profil" rows="5">{{ cv.profil }}</textarea><br><br>
 
-    <label>Compétences (séparées par des virgules)</label><br>
-    <input type="text" name="competences" value="{{ cv.competences | join(', ') }}"><br><br>
+    <h3>Compétences</h3>
+    <div id="competences-container">
+        {% for comp in cv.competences %}
+            <div class="competence-item">
+                <label>Nom</label>
+                <input type="text" name="comp_nom_{{ loop.index0 }}" value="{{ comp.nom }}"><br>
+                <label>Note (1 à 5)</label>
+                <input type="number" name="comp_note_{{ loop.index0 }}" value="{{ comp.note }}" min="1" max="5"><br><br>
+            </div>
+        {% endfor %}
+    </div>
+    <button type="button" onclick="ajouterCompetence()">➕ Ajouter une compétence</button>
 
     <h3>Expériences</h3>
     {% for exp in cv.experiences %}
@@ -123,9 +133,21 @@ function previsualiserEtConfirmer() {
     const nom = document.querySelector('[name="nom"]').value;
     const titre = document.querySelector('[name="titre"]').value;
     const profil = document.querySelector('[name="profil"]').value;
-    const competences = document.querySelector('[name="competences"]').value;
 
-    let message = `📝 Aperçu du CV :\n\nNom : ${nom}\nTitre : ${titre}\nProfil : ${profil}\nCompétences : ${competences}\n\n`;
+    let message = `📝 Aperçu du CV :\n\nNom : ${nom}\nTitre : ${titre}\nProfil : ${profil}\n`;
+
+    const competences = document.querySelectorAll(".competence-item");
+    if (competences.length > 0) {
+        message += `Compétences :\n`;
+        competences.forEach((comp, i) => {
+            const nom = comp.querySelector(`[name="comp_nom_${i}"]`)?.value || "";
+            const note = comp.querySelector(`[name="comp_note_${i}"]`)?.value || "";
+            if (nom || note) {
+                message += `\n- ${nom} (Note: ${note})\n`;
+            }
+        });
+        message += `\n`;
+    }
 
     const experiences = document.querySelectorAll("fieldset legend");
     message += `Expériences :\n`;
@@ -163,6 +185,21 @@ function confirmerEtSupprimer(button) {
     if (confirm("Souhaites-tu vraiment supprimer ce bloc ?")) {
         button.parentElement.remove();
     }
+}
+</script>
+<script>
+function ajouterCompetence() {
+    const container = document.getElementById("competences-container");
+    const index = container.querySelectorAll(".competence-item").length;
+    const html = `
+        <div class="competence-item">
+            <label>Nom</label>
+            <input type="text" name="comp_nom_${index}" value=""><br>
+            <label>Note (1 à 5)</label>
+            <input type="number" name="comp_note_${index}" min="1" max="5"><br><br>
+        </div>
+    `;
+    container.insertAdjacentHTML("beforeend", html);
 }
 </script>
 {% endblock %}
