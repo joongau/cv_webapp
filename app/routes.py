@@ -155,6 +155,13 @@ def admin_cv():
                 "experiences": [],
                 "formations": []
             }
+            data["contact"] = {
+                "téléphone": request.form.get("contact_téléphone", ""),
+                "email": request.form.get("contact_email", ""),
+                "adresse": request.form.get("contact_adresse", ""),
+                "linkedin": request.form.get("contact_linkedin", ""),
+                "github": request.form.get("contact_github", "")
+            }
 
             for i in range(10):
                 if f"exp_poste_{i}" in request.form:
