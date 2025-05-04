@@ -22,7 +22,8 @@
     <input type="text" name="competences" value="{{ cv.competences | join(', ') }}"><br><br>
 
     <h3>Expériences</h3>
-    {% for i, exp in enumerate(cv.experiences) %}
+    {% for exp in cv.experiences %}
+        {% set i = loop.index0 %}
         <fieldset>
             <legend>Expérience {{ i + 1 }}</legend>
             <label>Poste</label><br>
@@ -37,7 +38,8 @@
     {% endfor %}
 
     <h3>Formations</h3>
-    {% for i, form in enumerate(cv.formations) %}
+    {% for form in cv.formations %}
+        {% set i = loop.index0 %}
         <fieldset>
             <legend>Formation {{ i + 1 }}</legend>
             <label>Diplôme</label><br>
