@@ -1,16 +1,24 @@
 <section id="competences">
-    <h3>Compétences</h3>
+    <h3>Compétences techniques</h3>
     <ul>
-        {% for skill in cv.competences | sort(attribute="note", reverse=True) %}
+        {% for skill in cv.competences_techniques | sort(attribute="note", reverse=True) %}
             <li>
                 {{ skill.nom or 'Compétence sans nom' }} :
                 {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
-                {% for _ in range(note) %}
-                    ⭐
-                {% endfor %}
-                {% for _ in range(5 - note) %}
-                    ☆
-                {% endfor %}
+                {% for _ in range(note) %}⭐{% endfor %}
+                {% for _ in range(5 - note) %}☆{% endfor %}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <h3>Compétences comportementales</h3>
+    <ul>
+        {% for skill in cv.competences_comportementales | sort(attribute="note", reverse=True) %}
+            <li>
+                {{ skill.nom or 'Compétence sans nom' }} :
+                {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
+                {% for _ in range(note) %}⭐{% endfor %}
+                {% for _ in range(5 - note) %}☆{% endfor %}
             </li>
         {% endfor %}
     </ul>
