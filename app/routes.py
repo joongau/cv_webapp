@@ -366,6 +366,27 @@ def chatbot():
             model="gpt-3.5-turbo",
             messages=messages
         )
+
+        # --- Sauvegarde de la conversation dans data/conversations.json ---
+        from datetime import datetime
+
+        conversations_path = os.path.join(base_dir, '../data/conversations.json')
+        conversations = []
+
+        if os.path.exists(conversations_path):
+            with open(conversations_path, 'r', encoding='utf-8') as f:
+                conversations = json.load(f)
+
+        conversations.append({
+            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "question": question,
+            "response": response.choices[0].message['content']
+        })
+
+        with open(conversations_path, 'w', encoding='utf-8') as f:
+            json.dump(conversations, f, indent=2, ensure_ascii=False)
+        # --- Fin ajout sauvegarde ---
+
         return jsonify({"answer": response.choices[0].message['content']})
 
     except Exception as e:
