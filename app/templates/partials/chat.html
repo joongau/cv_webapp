@@ -109,7 +109,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function toggleChat() {
   const bubble = document.getElementById("chat-bubble");
-  bubble.style.display = bubble.style.display === "none" ? "block" : "none";
+  const badge = document.getElementById("chat-badge");
+  if (bubble.style.display === "none") {
+    bubble.style.display = "block";
+    badge.style.display = "none";
+  } else {
+    bubble.style.display = "none";
+    badge.style.display = "block";
+  }
 }
 
 function afficherMessage(texte, type) {
