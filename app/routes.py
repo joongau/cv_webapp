@@ -144,6 +144,7 @@ def logout():
 def admin_conversations():
     with open(os.path.join(base_dir, '../data/conversations.json'), 'r', encoding='utf-8') as f:
         conversations = json.load(f)
+    conversations.sort(key=lambda x: x['timestamp'], reverse=True)
     return render_template("admin_conversations.html", conversations=conversations)
 
 
