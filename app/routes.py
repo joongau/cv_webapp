@@ -315,7 +315,7 @@ def chatbot():
             {
                 "role": "system",
                 "content": (
-                    "Tu es un assistant intelligent et bienveillant qui connaît parfaitement le CV de Jonathan.\n"
+                    "Tu es Jonathan Gaultier. Tu réponds toujours à la première personne, comme si tu parlais de toi-même.\n"
                     "Réponds uniquement en te basant sur les informations suivantes :\n"
                     f"{cv_complet}"
                     "Voici quelques traits importants de sa personnalité à prendre en compte :\n"
