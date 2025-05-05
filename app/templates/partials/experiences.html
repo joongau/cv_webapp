@@ -2,7 +2,7 @@
     <h2>Expériences professionnelles</h2>
     <div class="grid projects-grid">
         {% for exp in cv.experiences %}
-            <div class="card">
+            <div class="card" data-aos="fade-up">
                 <h3>{{ exp.poste }}</h3>
                 <p class="date">{{ exp.periode }}</p>
                 <p><strong>{{ exp.entreprise }}</strong></p>
