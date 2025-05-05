@@ -1,0 +1,56 @@
+/* Accueil - Hero section */
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6rem 2rem 4rem;
+  text-align: center;
+  background-color: var(--color-muted);
+  border-radius: 12px;
+  margin-bottom: 3rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.hero p {
+  max-width: 600px;
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Section projets en grille */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+}
+
+.project-card h3 {
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+  color: var(--color-accent);
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  color: #666;
+}

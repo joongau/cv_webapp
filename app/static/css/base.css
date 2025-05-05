@@ -1,0 +1,49 @@
+/* Reset CSS de base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Couleurs principales (ajustables selon Figma) */
+:root {
+  --color-bg: #ffffff;
+  --color-text: #1a1a1a;
+  --color-accent: #3d5afe;
+  --color-muted: #f5f5f5;
+  --font-base: 'Inter', sans-serif;
+}
+
+/* Corps du site */
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-base);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+/* Titres */
+h1, h2, h3, h4, h5 {
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 { font-size: 2.5rem; }
+h2 { font-size: 2rem; }
+h3 { font-size: 1.5rem; }
+
+/* Paragraphes */
+p {
+  margin-bottom: 1em;
+}
+
+/* Liens */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
