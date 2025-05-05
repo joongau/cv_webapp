@@ -1,7 +1,11 @@
 <header>
     <h1>{{ cv.nom }}</h1>
     <h2>{{ cv.titre }}</h2>
-    <p>{{ cv.profil }}</p>
+    {% if cv.profil.photo %}
+    <img src="{{ url_for('static', filename=cv.profil.photo.split('static/')[-1]) }}" alt="Photo de profil"
+        style="width: 150px; border-radius: 50%; margin-bottom: 10px;">
+    {% endif %}
+    <p>{{ cv.profil.description }}</p>
 
     <nav>
         <ul>
@@ -10,6 +14,7 @@
             <li><a href="#formations">Formations</a></li>
             <li><a href="#projets">Projets</a></li>
             <li><a href="#contact">Contact</a></li>
+
         </ul>
     </nav>
 </header>
