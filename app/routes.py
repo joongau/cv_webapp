@@ -292,12 +292,24 @@ def chatbot():
         if not question:
             return jsonify({"error": "Question manquante"}), 400
 
+        cv_complet = "\n".join([
+            f"Nom : {cv_data['nom']}",
+            f"Titre : {cv_data['titre']}",
+            f"Profil : {cv_data['profil']}",
+            "Compétences techniques : " + ", ".join([f"{c['nom']} ({c['note']}/5)" for c in cv_data['competences_techniques']]),
+            "Compétences comportementales : " + ", ".join([f"{c['nom']} ({c['note']}/5)" for c in cv_data['competences_comportementales']]),
+            "Expériences :\n" + "\n".join([f"- {e['poste']} chez {e['entreprise']} ({e['periode']}) : {e['description']}" for e in cv_data['experiences']]),
+            "Formations :\n" + "\n".join([f"- {f['diplome']} à {f['lieu']} ({f['periode']}) : {f['description']}" for f in cv_data['formations']]),
+            "Projets :\n" + "\n".join([f"- {p['titre']} ({p['année']}) : {p['description']}" + (f" ({p['lien']})" if p.get("lien") else "") for p in cv_data['projets']])
+        ])
+
         messages = [
             {
                 "role": "system",
                 "content": (
-                    "Tu es un assistant intelligent et bienveillant qui répond uniquement en te basant sur le CV de Jonathan "
-                    "fourni en JSON ci-dessous. Sois professionnel, clair, concis, et adapte ton ton à celui d’un recruteur curieux. "
+                    "Tu es un assistant intelligent et bienveillant qui connaît parfaitement le CV de Jonathan.\n"
+                    "Réponds uniquement en te basant sur les informations suivantes :\n"
+                    f"{cv_complet}"
                     "Voici quelques traits importants de sa personnalité à prendre en compte :\n"
                     "- Curieux, structuré, rigoureux, gentil, attentionné, polyvalent, auto-didacte, professionnel, passionné par l'informatique et les technologies\n"
                     "- Très bon relationnel client\n"
@@ -338,11 +350,7 @@ def chatbot():
             },
             {
                 "role": "user",
-                "content": f"Voici le CV en JSON : {json.dumps(cv_data, ensure_ascii=False)}"
-            },
-            {
-                "role": "user",
-                "content": f"Question : {question}"
+                "content": question
             }
         ]
 
