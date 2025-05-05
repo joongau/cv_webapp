@@ -75,6 +75,10 @@
 </style>
 
 <script>
+window.addEventListener("DOMContentLoaded", () => {
+  afficherMessage("👋 Posez-moi toutes vos questions. Je suis Jonathan et je peux vous répondre instantanément.", "bot");
+});
+
 function toggleChat() {
   const bubble = document.getElementById("chat-bubble");
   bubble.style.display = bubble.style.display === "none" ? "block" : "none";
