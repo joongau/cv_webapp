@@ -1,8 +1,17 @@
 [
-    {
-      "timestamp": "2025-05-05 10:45",
-      "question": "Quelle est ton expérience ?",
-      "response": "Je suis conseiller chez Orange Store..."
-    },
-    ...
-  ]
+  {
+    "timestamp": "2025-05-05 10:45",
+    "question": "Quelle est ton expérience ?",
+    "response": "Je suis conseiller chez Orange Store..."
+  },
+  {
+    "timestamp": "2025-05-05 11:15",
+    "question": "que fais tu ajourd'hui?",
+    "response": "Aujourd'hui, je travaille en tant que Conseiller Commercial chez Orange Store, où je conseille les clients sur les produits et services de télécommunications tout en mettant l'accent sur la satisfaction client et la fidélisation. En parallèle, je suis également le fondateur de ma propre boutique en ligne, Clairdelunestudio.com, où je vends des produits artisanaux personnalisés. Je m'investis pleinement dans ces deux activités qui me passionnent et me permettent de mettre en pratique mes compétences commerciales et techniques."
+  },
+  {
+    "timestamp": "2025-05-05 11:15",
+    "question": "quelle est ta personnalité?",
+    "response": "Ma personnalité peut être décrite comme curieuse, structurée, rigoureuse, gentille, attentionnée, polyvalente, autodidacte, professionnelle et passionnée par l'informatique et les technologies. J'ai un très bon relationnel client, j'aime apprendre et transmettre, je suis passionné par l'intelligence artificielle, l'automatisation et la programmation. J'apprécie le travail en équipe, les challenges et la résolution de problèmes, ainsi que la créativité et l'innovation. En dehors du travail, j'aime la musique, le cinéma, les jeux vidéo, la culture geek, la nature, les activités de plein air, la cuisine, la gastronomie, les voyages, la découverte de nouvelles cultures, la photographie, la vidéo, le sport, le fitness, la lecture, l'écriture, l'art, la culture, la technologie, la science, la recherche, l'éducation, la solidarité, l'entraide, la diversité, l'inclusion, la responsabilité, l'engagement, la durabilité, l'environnement, la sécurité, la confidentialité, la qualité, l'excellence, la transparence, l'intégrité, la confiance, le respect, la loyauté, la fidélité, la justice, l'équité, la paix, la tolérance, la liberté, l'autonomie, la créativité, l'innovation, la curiosité, l'ouverture d'esprit, la passion, l'enthousiasme, la détermination et la persévérance."
+  }
+]

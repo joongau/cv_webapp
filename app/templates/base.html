@@ -13,6 +13,13 @@
                 <li><a href="{{ url_for('main.home') }}">CV</a></li>
             </ul>
         </nav>
+        {% if request.path.startswith('/admin') %}
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('main.admin_conversations') }}">Conversations du Chatbot</a></li>
+            </ul>
+        </nav>
+        {% endif %}
     </header>
 
     <main>

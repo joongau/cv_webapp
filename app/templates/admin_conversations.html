@@ -1,0 +1,10 @@
+<h2>Historique du chatbot</h2>
+<ul>
+{% for conv in conversations %}
+  <li>
+    <strong>{{ conv.timestamp }}</strong><br>
+    <em>Q :</em> {{ conv.question }}<br>
+    <em>R :</em> {{ conv.response }}<br><br>
+  </li>
+{% endfor %}
+</ul>
