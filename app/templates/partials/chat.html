@@ -1,53 +1,117 @@
 {% block title %}Chat avec Jonathan{% endblock %}
 
 {% block content %}
-<h2>💬 Chatbot - Posez une question sur mon profil</h2>
+<div id="chat-toggle" onclick="toggleChat()">💬</div>
 
-<div id="chat-container">
-  <div id="messages" style="border:1px solid #ccc; padding:10px; min-height:150px;"></div>
-  <br>
-  <input type="text" id="question" placeholder="Posez votre question..." style="width:80%;">
-  <button onclick="envoyerQuestion()">Envoyer</button>
+<div id="chat-bubble" style="display: none;">
+  <div id="chat-header">
+    <strong>Chat avec Jonathan</strong>
+    <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
+  </div>
+  <div id="chat-messages"></div>
+  <div id="chat-input">
+    <input type="text" id="question" placeholder="Posez votre question...">
+    <button onclick="envoyerQuestion()">➤</button>
+  </div>
 </div>
 {% endblock %}
 
 {% block scripts %}
+<style>
+#chat-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #0077ff;
+  color: white;
+  border-radius: 50%;
+  padding: 12px 14px;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+#chat-bubble {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+#chat-header {
+  background: #0077ff;
+  color: white;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+#chat-messages {
+  max-height: 250px;
+  overflow-y: auto;
+  padding: 10px;
+  font-size: 14px;
+}
+#chat-input {
+  display: flex;
+  border-top: 1px solid #ccc;
+}
+#chat-input input {
+  flex: 1;
+  border: none;
+  padding: 8px;
+}
+#chat-input button {
+  background: #0077ff;
+  color: white;
+  border: none;
+  padding: 8px 10px;
+}
+</style>
+
 <script>
+function toggleChat() {
+  const bubble = document.getElementById("chat-bubble");
+  bubble.style.display = bubble.style.display === "none" ? "block" : "none";
+}
+
 function afficherMessage(texte, type) {
-    const messages = document.getElementById("messages");
-    const div = document.createElement("div");
-    div.textContent = texte;
-    div.style.margin = "10px 0";
-    div.style.fontWeight = type === "bot" ? "normal" : "bold";
-    messages.appendChild(div);
-    messages.scrollTop = messages.scrollHeight;
+  const messages = document.getElementById("chat-messages");
+  const div = document.createElement("div");
+  div.textContent = (type === "user" ? "👤 " : "🤖 ") + texte;
+  div.style.margin = "5px 0";
+  div.style.fontWeight = type === "user" ? "bold" : "normal";
+  messages.appendChild(div);
+  messages.scrollTop = messages.scrollHeight;
 }
 
 function envoyerQuestion() {
-    const questionInput = document.getElementById("question");
-    const question = questionInput.value.trim();
-    if (!question) return;
+  const questionInput = document.getElementById("question");
+  const question = questionInput.value.trim();
+  if (!question) return;
 
-    afficherMessage("👤 " + question, "user");
-    questionInput.value = "";
+  afficherMessage(question, "user");
+  questionInput.value = "";
 
-    fetch("/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ question })
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.answer) {
-            afficherMessage("🤖 " + data.answer, "bot");
-        } else {
-            afficherMessage("❌ Erreur : " + (data.error || "Réponse vide"), "bot");
-        }
-    })
-    .catch(err => {
-        afficherMessage("❌ Erreur réseau", "bot");
-        console.error(err);
-    });
+  fetch("/api/chat", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ question })
+  })
+  .then(res => res.json())
+  .then(data => {
+    if (data.answer) {
+      afficherMessage(data.answer, "bot");
+    } else {
+      afficherMessage("❌ Erreur : " + (data.error || "Réponse vide"), "bot");
+    }
+  })
+  .catch(err => {
+    afficherMessage("❌ Erreur réseau", "bot");
+    console.error(err);
+  });
 }
 </script>
 {% endblock %}
