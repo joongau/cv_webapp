@@ -30,6 +30,9 @@
     <label>Profil</label><br>
     <textarea name="profil" rows="5">{{ cv.profil }}</textarea><br><br>
 
+    <label>Photo de profil (URL)</label><br>
+    <input type="text" name="profil_photo" value="{{ cv.photo if cv.photo is defined else '' }}"><br><br>
+
     <h3>Compétences techniques</h3>
     <div id="competences-techniques-container">
         {% for comp in cv.competences_techniques %}
