@@ -1,6 +1,7 @@
 {% block title %}Chat avec Jonathan{% endblock %}
 
 {% block content %}
+<div id="chat-badge">Parlez-moi !</div>
 <div id="chat-toggle" onclick="toggleChat()">💬</div>
 
 <div id="chat-bubble" style="display: none;">
@@ -78,6 +79,26 @@
   color: white;
   border: none;
   padding: 8px 10px;
+}
+</style>
+
+<style>
+#chat-badge {
+  position: fixed;
+  bottom: 70px;
+  right: 30px;
+  background: #ff4081;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+  z-index: 1001;
+  animation: blink 2s infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
 }
 </style>
 
