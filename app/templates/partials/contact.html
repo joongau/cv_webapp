@@ -1,10 +1,25 @@
-<section id="contact" class="cv-section">
-    <h3>Contact</h3>
-    <ul>
-        <li><strong>Téléphone :</strong> {{ cv.contact.téléphone }}</li>
-        <li><strong>Email :</strong> {{ cv.contact.email }}</li>
-        <li><strong>Adresse :</strong> {{ cv.contact.adresse }}</li>
-        <li><strong>LinkedIn :</strong> <a href="{{ cv.contact.linkedin }}">{{ cv.contact.linkedin }}</a></li>
-        <li><strong>GitHub :</strong> <a href="{{ cv.contact.github }}">{{ cv.contact.github }}</a></li>
-    </ul>
+<section id="contact">
+    <h2>Contact</h2>
+    <div class="grid projects-grid">
+        <div class="card">
+            <h3>Téléphone</h3>
+            <p>{{ cv.contact.téléphone }}</p>
+        </div>
+        <div class="card">
+            <h3>Email</h3>
+            <p><a href="mailto:{{ cv.contact.email }}">{{ cv.contact.email }}</a></p>
+        </div>
+        <div class="card">
+            <h3>Adresse</h3>
+            <p>{{ cv.contact.adresse }}</p>
+        </div>
+        <div class="card">
+            <h3>LinkedIn</h3>
+            <p><a href="{{ cv.contact.linkedin }}" target="_blank">{{ cv.contact.linkedin }}</a></p>
+        </div>
+        <div class="card">
+            <h3>GitHub</h3>
+            <p><a href="{{ cv.contact.github }}" target="_blank">{{ cv.contact.github }}</a></p>
+        </div>
+    </div>
 </section>

@@ -1,15 +1,15 @@
-<section id="formations" class="cv-section">
-    <h3>Formations</h3>
-    <ul>
+<section id="formations">
+    <h2>Formations</h2>
+    <div class="grid projects-grid">
         {% for formation in cv.formations | sort(attribute='periode', reverse=True) %}
-            <li>
-                <strong>{{ formation.diplome }}</strong><br>
-                {{ formation.lieu }}<br>
-                <small>{{ formation.periode }}</small><br>
+            <div class="card">
+                <h3>{{ formation.diplome }}</h3>
+                <p class="date">{{ formation.periode }}</p>
+                <p><strong>{{ formation.lieu }}</strong></p>
                 {% if formation.description %}
-                    {{ formation.description }}
+                    <p>{{ formation.description }}</p>
                 {% endif %}
-            </li>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 </section>
