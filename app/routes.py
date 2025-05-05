@@ -1,9 +1,11 @@
+# Ajout import pytz pour gestion timezone Europe/Paris
 import openai
 from flask import Blueprint, render_template
 import json
 import os
 from flask import jsonify
 from flask import request, redirect, url_for, session, flash
+import pytz
 # Set OpenAI API key for openai 0.28
 openai.api_key = os.getenv("OPENAI_API_KEY")
 
@@ -384,8 +386,9 @@ def chatbot():
             with open(conversations_path, 'r', encoding='utf-8') as f:
                 conversations = json.load(f)
 
+        paris = pytz.timezone("Europe/Paris")
         conversations.append({
-            "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M"),
+            "timestamp": datetime.now(paris).strftime("%Y-%m-%d %H:%M"),
             "question": question,
             "response": response.choices[0].message['content']
         })
