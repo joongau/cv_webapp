@@ -5,7 +5,7 @@
         <h3>Compétences techniques</h3>
         <div class="skills-list">
             {% for skill in cv.competences_techniques | sort(attribute="note", reverse=True) %}
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up">
                     <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
                     {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
                     <div class="stars">
@@ -21,7 +21,7 @@
         <h3>Compétences comportementales</h3>
         <div class="skills-list">
             {% for skill in cv.competences_comportementales | sort(attribute="note", reverse=True) %}
-                <div class="skill-card">
+                <div class="skill-card" data-aos="fade-up">
                     <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
                     {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
                     <div class="stars">
