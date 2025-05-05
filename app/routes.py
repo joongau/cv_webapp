@@ -140,6 +140,12 @@ def logout():
     session.pop('logged_in', None)
     return redirect(url_for('main.login'))
 
+@main.route('/admin/conversations')
+def admin_conversations():
+    with open(os.path.join(base_dir, '../data/conversations.json'), 'r', encoding='utf-8') as f:
+        conversations = json.load(f)
+    return render_template("admin_conversations.html", conversations=conversations)
+
 
 # Nouvelle route pour éditer les informations du CV
 @main.route('/admin/cv', methods=['GET', 'POST'])
