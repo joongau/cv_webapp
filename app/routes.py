@@ -130,7 +130,7 @@ def login():
     if request.method == 'POST':
         if request.form['password'] == os.getenv("ADMIN_PASSWORD"):
             session['logged_in'] = True
-            return redirect(url_for('main.admin_projets'))
+            return redirect(url_for('main.admin_cv'))
         else:
             flash('Mot de passe incorrect')
     return render_template('login.html')
