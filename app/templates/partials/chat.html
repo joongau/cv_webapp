@@ -113,5 +113,12 @@ function envoyerQuestion() {
     console.error(err);
   });
 }
+
+document.getElementById("question").addEventListener("keydown", function(e) {
+  if (e.key === "Enter") {
+    e.preventDefault();
+    envoyerQuestion();
+  }
+});
 </script>
 {% endblock %}
