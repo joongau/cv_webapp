@@ -1,6 +1,6 @@
 <header>
-    {% if cv.profil.photo %}
-    <img src="{{ url_for('static', filename=cv.profil.photo.split('static/')[-1]) }}" alt="Photo de profil"
+    {% if cv.photo %}
+    <img src="{{ url_for('static', filename=cv.photo) }}" alt="Photo de profil"
         style="width: 150px; border-radius: 50%; margin-bottom: 10px;">
     {% endif %}
     <h1>{{ cv.nom }}</h1>
