@@ -9,6 +9,9 @@
     <span onclick="toggleChat()" style="cursor:pointer;">✖</span>
   </div>
   <div id="chat-messages"></div>
+  <div id="chat-thinking" style="display: none; font-style: italic; color: #555; padding: 10px;">
+    🤖 Jonathan réfléchit<span id="dot1">.</span><span id="dot2">.</span><span id="dot3">.</span>
+  </div>
   <div id="chat-input">
     <input type="text" id="question" placeholder="Posez votre question...">
     <button onclick="envoyerQuestion()">➤</button>
@@ -87,6 +90,23 @@ function afficherMessage(texte, type) {
   messages.scrollTop = messages.scrollHeight;
 }
 
+let dotInterval;
+
+function startThinkingAnimation() {
+  const dots = [document.getElementById("dot1"), document.getElementById("dot2"), document.getElementById("dot3")];
+  let step = 0;
+  dotInterval = setInterval(() => {
+    dots.forEach((d, i) => d.style.visibility = (i <= step % 4) ? "visible" : "hidden");
+    step++;
+  }, 300);
+}
+
+function stopThinkingAnimation() {
+  clearInterval(dotInterval);
+  const dots = [document.getElementById("dot1"), document.getElementById("dot2"), document.getElementById("dot3")];
+  dots.forEach(d => d.style.visibility = "visible");
+}
+
 function envoyerQuestion() {
   const questionInput = document.getElementById("question");
   const question = questionInput.value.trim();
@@ -95,6 +115,9 @@ function envoyerQuestion() {
   afficherMessage(question, "user");
   questionInput.value = "";
 
+  document.getElementById("chat-thinking").style.display = "block";
+  startThinkingAnimation();
+
   fetch("/api/chat", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -102,6 +125,8 @@ function envoyerQuestion() {
   })
   .then(res => res.json())
   .then(data => {
+    document.getElementById("chat-thinking").style.display = "none";
+    stopThinkingAnimation();
     if (data.answer) {
       afficherMessage(data.answer, "bot");
     } else {
@@ -109,6 +134,8 @@ function envoyerQuestion() {
     }
   })
   .catch(err => {
+    document.getElementById("chat-thinking").style.display = "none";
+    stopThinkingAnimation();
     afficherMessage("❌ Erreur réseau", "bot");
     console.error(err);
   });
