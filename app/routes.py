@@ -161,6 +161,13 @@ def admin_cv():
     }
 
     if request.method == 'POST':
+        # Gestion de l'upload de la photo de profil
+        upload = request.files.get("photo_file")
+        photo_filename = request.form.get("profil_photo", "").strip()
+
+        if upload and upload.filename:
+            photo_filename = f"images/{upload.filename}"
+            upload.save(os.path.join(base_dir, '../static/', photo_filename))
         try:
             data = {
                 "nom": request.form["nom"],
@@ -239,7 +246,8 @@ def admin_cv():
                 json.dump({
                     "nom": data["nom"],
                     "titre": data["titre"],
-                    "profil": data["profil"]
+                    "profil": data["profil"],
+                    "photo": photo_filename
                 }, f, ensure_ascii=False, indent=2)
 
             with open(os.path.join(cv_dir, 'competences_techniques.json'), 'w', encoding='utf-8') as f:
