@@ -3,12 +3,25 @@
 {% block title %}CV - Jonathan Gaultier{% endblock %}
 
 {% block content %}
-    {% include 'partials/header.html' %}
-    {% include 'partials/identite.html' %}
-    {% include 'partials/projets.html' %}
-    {% include 'partials/competences.html' %}
-    {% include 'partials/experiences.html' %}
-    {% include 'partials/formations.html' %}
-    {% include 'partials/contact.html' %}
-    {% include 'partials/chat.html' %}
+<div class="bento-grid">
+    <div class="bento-item full">
+        {% include 'partials/identite.html' %}
+    </div>
+    <div class="bento-item">
+        {% include 'partials/projets.html' %}
+    </div>
+    <div class="bento-item">
+        {% include 'partials/competences.html' %}
+    </div>
+    <div class="bento-item">
+        {% include 'partials/experiences.html' %}
+    </div>
+    <div class="bento-item">
+        {% include 'partials/formations.html' %}
+    </div>
+    <div class="bento-item">
+        {% include 'partials/contact.html' %}
+    </div>
+</div>
+{% include 'partials/chat.html' %}
 {% endblock %}
