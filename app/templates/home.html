@@ -4,24 +4,39 @@
 
 {% block content %}
 <div class="bento-grid">
-    <div class="bento-item full">
-        {% include 'partials/identite.html' %}
-    </div>
-    <div class="bento-item">
-        {% include 'partials/projets.html' %}
-    </div>
-    <div class="bento-item">
-        {% include 'partials/competences.html' %}
-    </div>
-    <div class="bento-item">
-        {% include 'partials/experiences.html' %}
-    </div>
-    <div class="bento-item">
-        {% include 'partials/formations.html' %}
-    </div>
-    <div class="bento-item">
-        {% include 'partials/contact.html' %}
-    </div>
+
+  <!-- Identité sur toute la largeur -->
+  <div class="bento-item full">
+    {% include 'partials/identite.html' %}
+  </div>
+
+  <!-- Projets en grand sur 2 colonnes -->
+  <div class="bento-item big">
+    {% include 'partials/projets.html' %}
+  </div>
+
+  <!-- Compétences techniques et comportementales -->
+  <div class="bento-item">
+    {% include 'partials/competences.html' %}
+  </div>
+
+  <!-- Expériences -->
+  <div class="bento-item">
+    {% include 'partials/experiences.html' %}
+  </div>
+
+  <!-- Formations -->
+  <div class="bento-item">
+    {% include 'partials/formations.html' %}
+  </div>
+
+  <!-- Contact -->
+  <div class="bento-item">
+    {% include 'partials/contact.html' %}
+  </div>
+
 </div>
+
+<!-- Chat persistent -->
 {% include 'partials/chat.html' %}
 {% endblock %}
