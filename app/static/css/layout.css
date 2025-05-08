@@ -56,9 +56,11 @@ section {
 
 .bento-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-auto-rows: auto;
   gap: 2rem;
   padding: 2rem;
+  align-items: start;
 }
 
 @media (max-width: 768px) {
@@ -73,6 +75,9 @@ section {
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   color: white;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .bento-item.big {
@@ -116,4 +121,9 @@ section {
   .grid-row {
     grid-template-columns: 1fr;
   }
+}
+
+.full-width {
+  width: 100%;
+  padding: 2rem;
 }
