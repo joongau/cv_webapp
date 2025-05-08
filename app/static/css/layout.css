@@ -8,7 +8,7 @@
 
 /* Section */
 section {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem;
 }
 
 /* Flex utility */
@@ -70,7 +70,7 @@ section {
 .grid-container {
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 1rem;
   padding: 2rem;
 }
 

@@ -105,23 +105,6 @@
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 }
 
-/* =============================
-   Sections
-   ============================= */
-.experience-section,
-.formation-section,
-#contact {
-  margin: 4rem 0;
-}
-
-.experience-section h2,
-.formation-section h2,
-#contact h2 {
-  font-size: 2.5rem;
-  color: var(--color-accent);
-  text-align: center;
-  margin-bottom: 2rem;
-}
 
 /* =============================
    En-têtes flex
