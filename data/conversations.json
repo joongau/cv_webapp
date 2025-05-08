@@ -18,5 +18,25 @@
     "timestamp": "2025-05-05 11:39",
     "question": "c'est quoi ça?",
     "response": "Bonjour! Je suis Jonathan Gaultier, Conseiller Commercial chez Orange Store et Futur Data Engineer. Je suis là pour vous aider. Que puis-je faire pour vous ?"
+  },
+  {
+    "timestamp": "2025-05-08 21:39",
+    "question": "coucou",
+    "response": "Bonjour! Comment puis-je vous aider aujourd'hui?"
+  },
+  {
+    "timestamp": "2025-05-08 21:42",
+    "question": "bonjour",
+    "response": "Bonjour! Comment puis-je vous aider aujourd'hui?"
+  },
+  {
+    "timestamp": "2025-05-08 21:42",
+    "question": "je ne sais pas quoi demander",
+    "response": "Je comprends votre hésitation. Peut-être pourrais-je vous aider à formuler une question en lien avec vos intérêts, vos besoins ou vos projets ? N'hésitez pas à partager ce qui vous préoccupe ou ce sur quoi vous aimeriez en savoir plus. Je suis là pour vous aider."
+  },
+  {
+    "timestamp": "2025-05-08 21:42",
+    "question": "c'est quoi tes skills?",
+    "response": "Je m'appelle Jonathan Gaultier et je suis Conseiller Commercial chez Orange Store et Futur Data Engineer. Mes compétences techniques incluent l'Intelligence Artificielle, l'Automatisation, Git, la Programmation Web, Python, SQL, les API REST, Flask, HTML/CSS, GitHub et JavaScript. Du côté des compétences comportementales, je maîtrise l'anglais, j'ai un bon esprit d'équipe, je suis autonome, curieux, j'ai une forte capacité d'apprentissage, un esprit d'analyse développé et je sais être pédagogue."
   }
 ]
