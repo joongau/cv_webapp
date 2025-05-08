@@ -1,11 +1,35 @@
 <nav class="main-nav">
-    <div class="logo">J</div>
-    <ul>
-      <li><a href="#identite">À propos de moi</a></li>
-      <li><a href="#projets">Projets</a></li>
-      <li><a href="#competences">Compétences</a></li>
-      <li><a href="#experiences">Experience</a></li>
-      <li><a href="#formations">Formations</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </nav>
+  <div class="logo">J</div>
+
+  <!-- Burger menu button -->
+  <button class="burger-menu show-on-mobile" id="burger-button" aria-label="Menu">&#9776;</button>
+
+  <!-- Navigation links -->
+  <ul id="mobile-nav" class="nav-links">
+    <li><a href="#identite">À propos de moi</a></li>
+    <li><a href="#projets">Projets</a></li>
+    <li><a href="#competences">Compétences</a></li>
+    <li><a href="#experiences">Experience</a></li>
+    <li><a href="#formations">Formations</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const burger = document.getElementById("burger-button");
+    const menu = document.getElementById("mobile-nav");
+
+    burger.addEventListener("click", () => {
+      menu.classList.toggle("mobile-hidden");
+      menu.classList.toggle("active");
+    });
+
+    menu.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        menu.classList.add("mobile-hidden");
+        menu.classList.remove("active");
+      });
+    });
+  });
+</script>

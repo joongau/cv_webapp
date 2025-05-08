@@ -67,3 +67,69 @@
   border-color: var(--color-accent);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
+
+/* ===============================
+   Responsive navigation < 1200px
+   =============================== */
+@media (max-width: 1200px) {
+  .main-nav {
+    justify-content: space-between;
+  }
+
+  .burger-menu {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1100;
+  }
+
+  .main-nav ul {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    flex-direction: column;
+    background: rgba(22, 22, 22, 0.95);
+    backdrop-filter: blur(8px);
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    display: none;
+  }
+
+  .main-nav ul.active {
+    display: flex;
+  }
+}
+
+/* Masquer le burger par défaut */
+.burger-menu {
+  display: none;
+}
+
+/* Masquer le menu horizontal < 1200px */
+@media (max-width: 1200px) {
+  .main-nav ul {
+    display: none;
+  }
+
+  .main-nav ul.active {
+    display: flex;
+  }
+
+  .burger-menu {
+    display: block;
+  }
+}
+
+/* Affichage par défaut du menu en version desktop */
+@media (min-width: 1201px) {
+  .main-nav ul {
+    display: flex !important;
+  }
+
+  .burger-menu {
+    display: none !important;
+  }
+}
