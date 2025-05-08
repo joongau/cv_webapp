@@ -32,14 +32,9 @@
  
 
     <header>
-      <div class="nav-container">
-        <button class="burger-menu" id="burger-button" aria-label="Ouvrir le menu">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-      <nav id="mobile-nav" class="mobile-hidden">
         {% include 'partials/nav.html' %}
-      </nav>
+
+
     </header>
 
     {% block content %}
@@ -66,31 +61,5 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
   AOS.init({ once: true, duration: 700 });
-</script>
-<script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const burger = document.getElementById("burger-button");
-    const menu = document.getElementById("mobile-nav");
-
-    // Toggle menu on burger click
-    burger.addEventListener("click", (e) => {
-      e.stopPropagation();
-      menu.classList.toggle("mobile-hidden");
-    });
-
-    // Close menu when a nav link is clicked
-    menu.addEventListener("click", (e) => {
-      if (e.target.tagName.toLowerCase() === "a") {
-        menu.classList.add("mobile-hidden");
-      }
-    });
-
-    // Close if clicking outside menu and button
-    document.addEventListener("click", (e) => {
-      if (!menu.contains(e.target) && !burger.contains(e.target)) {
-        menu.classList.add("mobile-hidden");
-      }
-    });
-  });
 </script>
 </html>

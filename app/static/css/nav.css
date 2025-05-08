@@ -59,9 +59,6 @@
   transition: all 0.3s ease;
   border: 1px solid transparent;
   text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .main-nav a:hover {
@@ -69,57 +66,4 @@
   color: #ffffff;
   border-color: var(--color-accent);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-}
-
-/* ===============================
-   Responsive Burger Menu
-   =============================== */
-
-.burger-menu {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: #ffffff;
-  cursor: pointer;
-  z-index: 1100;
-}
-
-@media (max-width: 1200px) {
-  .burger-menu {
-    display: block;
-    position: absolute;
-    top: 1rem;
-    left: 1rem;
-  }
-
-  .main-nav {
-    position: absolute;
-    top: 3.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    flex-direction: column;
-    background: rgba(22, 22, 22, 0.95);
-    padding: 1rem;
-    border-radius: 1rem;
-  }
-
-  .main-nav.mobile-hidden {
-    display: none !important;
-    height: 0;
-    padding: 0;
-    overflow: hidden;
-  }
-
-  .main-nav ul {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .main-nav a {
-    font-size: 1.1rem;
-    width: 100%;
-    text-align: center;
-  }
 }
