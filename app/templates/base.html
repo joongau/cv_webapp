@@ -34,14 +34,7 @@
     <header>
         {% include 'partials/nav.html' %}
 
-        <!-- Menu admin affiché uniquement dans les routes commençant par /admin -->
-        {% if request.path.startswith('/admin') %}
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('main.admin_conversations') }}">Conversations du Chatbot</a></li>
-            </ul>
-        </nav>
-        {% endif %}
+
     </header>
 
     {% block content %}

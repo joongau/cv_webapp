@@ -1,28 +1,32 @@
 /* ===============================
-   Barre de navigation principale
+   Barre de navigation moderne
    =============================== */
 .main-nav {
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 60px;
-  background-color: #1f1f1f;
+  top: 1.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1200px, 90%);
+  padding: 0.75rem 2rem;
+  background: rgba(22, 22, 22, 0.7);
+  backdrop-filter: blur(12px);
+  border-radius: 1.5rem;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 2rem;
+  justify-content: center;
   z-index: 1000;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* ===============================
-   Logo
+   Logo (si utilisé à gauche)
    =============================== */
 .main-nav .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-accent);
+  margin-right: auto;
 }
 
 /* ===============================
@@ -31,9 +35,7 @@
 .main-nav ul {
   list-style: none;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   margin: 0;
   padding: 0;
 }
@@ -47,13 +49,21 @@
    =============================== */
 .main-nav a {
   display: inline-block;
-  color: #cbd5e1;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #e2e8f0;
   text-decoration: none;
   font-weight: 500;
   font-size: 1rem;
-  transition: color 0.2s ease;
+  transition: all 0.3s ease;
+  border: 1px solid transparent;
+  text-transform: uppercase;
 }
 
 .main-nav a:hover {
-  color: var(--color-accent);
+  background-color: var(--color-accent);
+  color: #ffffff;
+  border-color: var(--color-accent);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
