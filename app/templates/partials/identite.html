@@ -1,20 +1,19 @@
 <section id="identite" class="hero">
   <div class="hero-left">
-    <div class="status">
-      <span class="dot"></span>
-      <span class="label">AVAILABLE FOR JOB</span>
-    </div>
-    <h1>I'm <span class="highlight">{{ cv.nom }}</span></h1>
+    <h1>CV intéractif de <span class="highlight">{{ cv.nom }}</span></h1>
     <h2>{{ cv.titre }}</h2>
     <p class="profil">{{ cv.profil }}</p>
 
     <div class="cta-buttons">
-      <a href="#contact" class="btn btn-primary">Hire me</a>
-      <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('{{ cv.contact.email }}')">Copy Email</button>
+      <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('{{ cv.contact.email }}')">Contacter par mail</button>
     </div>
   </div>
 
   <div class="hero-right">
+    <div class="status">
+      <span class="dot"></span>
+      <span class="label">DISPONIBLE</span>
+    </div>
     <div class="photo-container">
       <img src="{{ url_for('static', filename=cv.photo) }}" alt="Photo de profil">
     </div>
