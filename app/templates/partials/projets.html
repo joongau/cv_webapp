@@ -1,14 +1,17 @@
 <section id="projets">
-    <h2>Projets</h2>
-    <div class="grid projects-grid">
-        {% for projet in cv.projets | sort(attribute='titre') | sort(attribute='année', reverse=True) %}
-            <div class="card" data-aos="fade-up">
-                <h3>{{ projet.titre }} <small>({{ projet.année }})</small></h3>
-                <p>{{ projet.description }}</p>
-                {% if projet.lien %}
-                    <p><a href="{{ projet.lien }}" target="_blank">Voir le projet</a></p>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
+  <h2 class="section-title">My Projects</h2>
+  <div class="projects-grid">
+    {% for projet in cv.projets | sort(attribute='titre') | sort(attribute='année', reverse=True) %}
+      <div class="project-card">
+        <div class="project-header">
+          <h3>{{ projet.titre }}</h3>
+          <span class="project-year">{{ projet.année }}</span>
+        </div>
+        <p class="project-description">{{ projet.description }}</p>
+        {% if projet.lien %}
+          <a href="{{ projet.lien }}" target="_blank" class="project-link">Voir le projet ↗</a>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
 </section>

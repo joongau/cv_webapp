@@ -41,3 +41,55 @@
 .card a:hover {
   text-decoration: underline;
 }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.project-card {
+  background-color: #1f1f1f;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.project-card h3 {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  margin-bottom: 0.5rem;
+}
+
+.project-description {
+  color: #cbd5e1;
+  font-size: 1rem;
+  margin: 1rem 0;
+}
+
+.project-link {
+  margin-top: auto;
+  align-self: flex-start;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-accent);
+}
+
+.project-link:hover {
+  text-decoration: underline;
+}
+
+.project-year {
+  font-size: 0.85rem;
+  color: #94a3b8;
+  font-weight: 500;
+}
