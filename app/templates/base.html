@@ -20,16 +20,15 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/identite.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
+ 
+
     <header>
-        <h1>Jonathan Gaultier</h1>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('main.home') }}">CV</a></li>
-            </ul>
-        </nav>
+        {% include 'partials/nav.html' %}
+
         {% if request.path.startswith('/admin') %}
         <nav>
             <ul>

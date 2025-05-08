@@ -50,3 +50,7 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+main {
+  margin-top: 70px; /* Ajuste si ta barre de navigation est plus haute */
+}
