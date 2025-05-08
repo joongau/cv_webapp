@@ -112,11 +112,12 @@ section {
   flex-direction: column;
 }
 
-.skills-card {
+/* Card variations */
+.card.skills-card {
   gap: 0rem;
 }
 
-.project-card {
+.card.project-card {
   gap: 1rem;
   transition: transform 0.2s ease;
 }
