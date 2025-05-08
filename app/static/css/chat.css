@@ -1,6 +1,6 @@
-
-
-/* Bouton flottant "Parlez-moi !" */
+/* ============================
+   Bouton flottant "Parlez-moi !"
+   ============================ */
 .chat-toggle {
   position: fixed;
   bottom: 30px;
@@ -18,14 +18,18 @@
   z-index: 1000;
 }
 
-/* Animation du bouton */
+/* ============================
+   Animation bouton flottant
+   ============================ */
 @keyframes pulse {
   0% { transform: scale(1); }
   50% { transform: scale(1.08); }
   100% { transform: scale(1); }
 }
 
-/* Fenêtre de chat */
+/* ============================
+   Fenêtre de chat
+   ============================ */
 .chat-container {
   position: fixed;
   bottom: 90px;
@@ -41,7 +45,9 @@
   z-index: 999;
 }
 
-/* En-tête du chat */
+/* ============================
+   En-tête du chat
+   ============================ */
 .chat-header {
   background-color: var(--color-accent);
   color: white;
@@ -52,7 +58,9 @@
   align-items: center;
 }
 
-/* Corps du chat */
+/* ============================
+   Corps du chat
+   ============================ */
 .chat-messages {
   padding: 12px;
   overflow-y: auto;
@@ -72,7 +80,9 @@
   color: #333;
 }
 
-/* Champ de saisie */
+/* ============================
+   Champ de saisie
+   ============================ */
 .chat-input {
   display: flex;
   border-top: 1px solid #eee;
@@ -94,7 +104,9 @@
   cursor: pointer;
 }
 
-/* Indicateur "en train d’écrire" */
+/* ============================
+   Indicateur "en train d’écrire"
+   ============================ */
 .chat-typing {
   font-style: italic;
   font-size: 0.85rem;
