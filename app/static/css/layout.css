@@ -82,3 +82,29 @@ section {
 .bento-item.full {
   grid-column: 1 / -1;
 }
+
+.grid-container {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  padding: 2rem;
+}
+
+.grid-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Responsive (1 colonne sur petits écrans) */
+@media (max-width: 768px) {
+  .grid-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -2,9 +2,10 @@
   <h2 class="section-title">Skills</h2>
 
   <div class="skills-columns">
+
     <div class="skills-group">
       <h3>Technical Skills</h3>
-      <div class="skills-list">
+      <div class="skills-list two-columns">
         {% for skill in cv.competences_techniques | sort(attribute="note", reverse=True) %}
           <div class="skill-card">
             <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
@@ -20,7 +21,7 @@
 
     <div class="skills-group">
       <h3>Soft Skills</h3>
-      <div class="skills-list">
+      <div class="skills-list two-columns">
         {% for skill in cv.competences_comportementales | sort(attribute="note", reverse=True) %}
           <div class="skill-card">
             <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
@@ -33,5 +34,6 @@
         {% endfor %}
       </div>
     </div>
+
   </div>
 </section>

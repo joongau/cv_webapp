@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/identite.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/layout.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/nav.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/skills.css') }}">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
@@ -38,9 +39,20 @@
         {% endif %}
     </header>
 
+    {% block content %}
     <main>
-        {% block content %}{% endblock %}
+      <section class="grid-container">
+        <div class="grid-row">
+          <div class="grid-column">{% include 'partials/experiences.html' %}</div>
+          <div class="grid-column">{% include 'partials/competences.html' %}</div>
+        </div>
+        <div class="grid-row">
+          <div class="grid-column">{% include 'partials/projets.html' %}</div>
+          <div class="grid-column">{% include 'partials/formations.html' %}</div>
+        </div>
+      </section>
     </main>
+    {% endblock %}
 
     <footer>
         {% include 'partials/footer.html' %}
