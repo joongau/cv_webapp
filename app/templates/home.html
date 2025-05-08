@@ -3,24 +3,36 @@
 {% block title %}CV - Jonathan Gaultier{% endblock %}
 
 {% block content %}
-<!-- Identité -->
-<div class="full-width">{% include 'partials/identite.html' %}</div>
-
-<!-- Grille principale -->
-<div class="grid-container">
-  <div class="grid-row">
-    <div class="grid-column">{% include 'partials/experiences.html' %}</div>
-    <div class="grid-column">{% include 'partials/competences.html' %}</div>
+  <!-- Section Identité -->
+  <div class="full-width">
+    {% include 'partials/identite.html' %}
   </div>
-  <div class="grid-row">
-    <div class="grid-column">{% include 'partials/projets.html' %}</div>
-    <div class="grid-column">{% include 'partials/formations.html' %}</div>
+
+  <!-- Grille principale (Expériences - Compétences / Projets - Formations) -->
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-column">
+        {% include 'partials/experiences.html' %}
+      </div>
+      <div class="grid-column">
+        {% include 'partials/competences.html' %}
+      </div>
+    </div>
+    <div class="grid-row">
+      <div class="grid-column">
+        {% include 'partials/projets.html' %}
+      </div>
+      <div class="grid-column">
+        {% include 'partials/formations.html' %}
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Contact -->
-<div class="full-width">{% include 'partials/contact.html' %}</div>
+  <!-- Section Contact -->
+  <div class="full-width">
+    {% include 'partials/contact.html' %}
+  </div>
 
-<!-- Chat -->
-{% include 'partials/chat.html' %}
+  <!-- Chat -->
+  {% include 'partials/chat.html' %}
 {% endblock %}
