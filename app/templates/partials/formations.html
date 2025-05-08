@@ -1,13 +1,20 @@
 <section id="formations" class="formation-section">
   <h2 class="section-title">Education</h2>
+
   <div class="formation-grid">
     {% for formation in cv.formations | sort(attribute='periode', reverse=True) %}
       <div class="formation-card">
+        
+        <!-- En-tête de la formation -->
         <div class="formation-header">
           <h3>{{ formation.diplome }}</h3>
           <span class="formation-date">{{ formation.periode }}</span>
         </div>
+
+        <!-- Lieu de la formation -->
         <p class="formation-lieu"><strong>{{ formation.lieu }}</strong></p>
+
+        <!-- Description facultative -->
         {% if formation.description %}
           <p class="formation-description">{{ formation.description }}</p>
         {% endif %}
