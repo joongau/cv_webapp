@@ -1,3 +1,6 @@
+/* ===============================
+   Barre de navigation principale
+   =============================== */
 .main-nav {
   position: fixed;
   top: 0;
@@ -13,12 +16,18 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
+/* ===============================
+   Logo
+   =============================== */
 .main-nav .logo {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-accent);
 }
 
+/* ===============================
+   Menu de navigation
+   =============================== */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -33,6 +42,9 @@
   margin: 0;
 }
 
+/* ===============================
+   Liens de navigation
+   =============================== */
 .main-nav a {
   display: inline-block;
   color: #cbd5e1;
