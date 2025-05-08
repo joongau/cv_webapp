@@ -2,12 +2,16 @@
   <div class="footer-container">
     <p>&copy; {{ current_year }} Jonathan Gaultier. All rights reserved.</p>
     <div class="footer-links">
-      <a href="mailto:{{ cv.contact.email }}">Contact</a>
-      {% if cv.contact.linkedin %}
-        <a href="{{ cv.contact.linkedin }}" target="_blank">LinkedIn</a>
-      {% endif %}
-      {% if cv.contact.github %}
-        <a href="{{ cv.contact.github }}" target="_blank">GitHub</a>
+      {% if cv and cv.contact %}
+        <a href="mailto:{{ cv.contact.email }}">Contact</a>
+        {% if cv.contact.linkedin %}
+          <a href="{{ cv.contact.linkedin }}" target="_blank">LinkedIn</a>
+        {% endif %}
+        {% if cv.contact.github %}
+          <a href="{{ cv.contact.github }}" target="_blank">GitHub</a>
+        {% endif %}
+      {% else %}
+        <a href="#">Contact</a>
       {% endif %}
     </div>
   </div>
