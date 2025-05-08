@@ -137,6 +137,21 @@
 
   .hero-right {
     margin-top: 2rem;
+    order: -1;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-right img {
+    margin: 0 auto;
+  }
+
+  .status {
+    position: static;
+    transform: none;
+    margin-top: 1rem;
+    justify-content: center;
   }
 }
 
