@@ -1,8 +1,14 @@
-<section id="identite" class="hero">
-  <img src="{{ url_for('static', filename='images/photo.jpg') }}" alt="Photo de profil" width="160" height="160" style="border-radius: 50%; box-shadow: 0 4px 12px rgba(0,0,0,0.1); margin-bottom: 1.5rem;">
-  <h1>Jonathan Gaultier</h1>
-  <h2 style="font-weight: 500; font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-muted-text);">Conseiller commercial & créateur d’expériences numériques</h2>
-  <p style="max-width: 600px; margin: 0 auto;">
-    Bienvenue sur mon CV interactif. Posez-moi toutes vos questions ou explorez mes projets, compétences et parcours professionnel.
-  </p>
+<section class="hero">
+  <div class="hero-left">
+    <div class="status">
+      <span class="dot"></span>
+      <span class="label">AVAILABLE FOR JOB</span>
+    </div>
+    <h1>I'm <span class="highlight">{{ cv.nom }}</span></h1>
+    <h2>{{ cv.titre }}</h2>
+    <p>{{ cv.profil }}</p>
+  </div>
+  <div class="hero-right">
+    <img src="{{ url_for('static', filename=cv.photo) }}" alt="Photo de profil">
+  </div>
 </section>

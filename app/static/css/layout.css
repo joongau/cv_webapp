@@ -54,12 +54,11 @@ section {
 .p-1 { padding: 1rem; }
 .p-2 { padding: 2rem; }
 
-/* Grille Bento principale */
 .bento-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
-  margin-bottom: 4rem;
+  padding: 2rem;
 }
 
 @media (max-width: 768px) {
@@ -69,13 +68,13 @@ section {
 }
 
 .bento-item {
-  background-color: white;
-  border-radius: 16px;
+  background-color: #1f1f1f;
+  border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  color: white;
 }
 
-/* Variantes de taille si besoin */
 .bento-item.big {
   grid-column: span 2;
 }
