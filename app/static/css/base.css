@@ -1,11 +1,15 @@
-/* Reset CSS */
+/* ===============================
+   Reset CSS
+   =============================== */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Couleurs et polices globales */
+/* ===============================
+   Variables : couleurs & polices
+   =============================== */
 :root {
   --color-bg: #161616;
   --color-text: #ffffff;
@@ -15,7 +19,9 @@
   --font-base: 'Inter', sans-serif;
 }
 
-/* Corps du site */
+/* ===============================
+   Corps du site
+   =============================== */
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
@@ -24,7 +30,9 @@ body {
   line-height: 1.7;
 }
 
-/* Titres */
+/* ===============================
+   Titres
+   =============================== */
 h1, h2, h3, h4, h5 {
   font-weight: 600;
   line-height: 1.2;
@@ -36,21 +44,29 @@ h1 { font-size: 3rem; }
 h2 { font-size: 2.25rem; }
 h3 { font-size: 1.5rem; }
 
-/* Paragraphes */
+/* ===============================
+   Paragraphes
+   =============================== */
 p {
   margin-bottom: 1em;
   color: var(--color-muted-text);
 }
 
-/* Liens */
+/* ===============================
+   Liens
+   =============================== */
 a {
   color: var(--color-accent);
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
 
+/* ===============================
+   Structure de page
+   =============================== */
 main {
   margin-top: 70px;
   padding: 2rem 4rem;
