@@ -94,12 +94,21 @@ section {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
+  align-items: start;
+}
+
+.grid-row > .grid-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-self: stretch;
 }
 
 .grid-column {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  height: 100%;
 }
 
 /* Responsive (1 colonne sur petits écrans) */
