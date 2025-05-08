@@ -11,7 +11,9 @@
             <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
             {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
             <div class="stars">
-              {% for _ in range(note) %}⭐{% endfor %}
+              {% for _ in range(note) %}
+                <i class="fas fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
+            {% endfor %}
               {% for _ in range(5 - note) %}☆{% endfor %}
             </div>
           </div>
@@ -27,7 +29,9 @@
             <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
             {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
             <div class="stars">
-              {% for _ in range(note) %}⭐{% endfor %}
+              {% for _ in range(note) %}
+              <i class="fas fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
+              {% endfor %}
               {% for _ in range(5 - note) %}☆{% endfor %}
             </div>
           </div>
