@@ -1,14 +1,18 @@
 <section id="identite" class="hero">
+  <!-- Colonne gauche : Infos principales -->
   <div class="hero-left">
     <h1>CV intéractif de <span class="highlight">{{ cv.nom }}</span></h1>
     <h2>{{ cv.titre }}</h2>
     <p class="profil">{{ cv.profil }}</p>
 
     <div class="cta-buttons">
-      <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('{{ cv.contact.email }}')">Contacter par mail</button>
+      <button class="btn btn-secondary" onclick="navigator.clipboard.writeText('{{ cv.contact.email }}')">
+        Contacter par mail
+      </button>
     </div>
   </div>
 
+  <!-- Colonne droite : Photo + statut -->
   <div class="hero-right">
     <div class="status">
       <span class="dot"></span>
