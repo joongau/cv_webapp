@@ -13,8 +13,10 @@
             <div class="stars">
               {% for _ in range(note) %}
                 <i class="fas fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
-            {% endfor %}
-              {% for _ in range(5 - note) %}☆{% endfor %}
+              {% endfor %}
+              {% for _ in range(5 - note) %}
+                <i class="far fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
+              {% endfor %}
             </div>
           </div>
         {% endfor %}
@@ -30,9 +32,11 @@
             {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
             <div class="stars">
               {% for _ in range(note) %}
-              <i class="fas fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
+                <i class="fas fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
               {% endfor %}
-              {% for _ in range(5 - note) %}☆{% endfor %}
+              {% for _ in range(5 - note) %}
+                <i class="far fa-star" style="color: #ef5a3c; font-size: 24px;"></i>
+              {% endfor %}
             </div>
           </div>
         {% endfor %}
