@@ -1,31 +1,11 @@
-<div x-data="{ open: false }" class="main-nav-wrapper">
-  <nav class="main-nav">
+<nav class="main-nav">
     <div class="logo">J</div>
-
-    <!-- Burger -->
-    <button
-      class="burger-menu"
-      @click="open = !open"
-      :aria-expanded="open"
-      aria-controls="mobile-nav"
-      aria-label="Ouvrir le menu"
-    >
-      <i class="fas fa-bars"></i>
-    </button>
-
-    <!-- Navigation -->
-    <ul
-      id="mobile-nav"
-      class="nav-links"
-      :class="{ 'mobile-hidden': !open }"
-      @click.away="open = false"
-    >
+    <ul>
       <li><a href="#identite">À propos de moi</a></li>
       <li><a href="#projets">Projets</a></li>
       <li><a href="#competences">Compétences</a></li>
-      <li><a href="#experiences">Expérience</a></li>
+      <li><a href="#experiences">Experience</a></li>
       <li><a href="#formations">Formations</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-</div>
