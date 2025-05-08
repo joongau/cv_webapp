@@ -1,6 +1,9 @@
 /* =============================
    Section principale
    ============================= */
+.skills-section {
+  margin: 4rem 0;
+}
 
 .skills-section h2 {
   font-size: 2.5rem;

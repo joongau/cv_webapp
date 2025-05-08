@@ -108,6 +108,11 @@
 /* =============================
    Sections
    ============================= */
+.experience-section,
+.formation-section,
+#contact {
+  margin: 4rem 0;
+}
 
 .experience-section h2,
 .formation-section h2,
