@@ -1,7 +1,7 @@
 <section id="projets" class="bento-item">
   <h2 class="section-title">My Projects</h2>
   
-  <div class="projects-grid">
+  <div class="bento-grid">
     {% for projet in cv.projets | sort(attribute='titre') | sort(attribute='année', reverse=True) %}
       <div class="project-card bento-card">
         

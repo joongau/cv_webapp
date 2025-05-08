@@ -84,7 +84,19 @@
 /* =============================
    Grilles
    ============================= */
-.projects-grid,
+.bento-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+@media (max-width: 768px) {
+  .bento-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* .projects-grid,
 .experience-grid,
 .formation-grid,
 #contact .projects-grid {
@@ -103,7 +115,7 @@
 
 #contact .projects-grid {
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-}
+} */
 
 /* =============================
    Sections
@@ -132,4 +144,14 @@
   justify-content: space-between;
   align-items: center;
   margin-bottom: 0.5rem;
+}
+
+.bento-grid > * {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.bento-grid p:last-child {
+  margin-bottom: 0;
 }
