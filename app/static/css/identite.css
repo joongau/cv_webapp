@@ -101,7 +101,7 @@
 
 .cta-buttons button:hover,
 .cta-buttons a:hover {
-  background-color: #2a45d1;
+  background-color: rgb(135, 0, 0);
 }
 
 @media (max-width: 768px) {

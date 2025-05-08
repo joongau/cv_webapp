@@ -1,35 +1,37 @@
 <section id="competences" class="skills-section">
-    <h2>Compétences</h2>
+  <h2 class="section-title">Skills</h2>
 
-    <div class="skills-group bento-item medium">
-        <h3>Compétences techniques</h3>
-        <div class="skills-list">
-            {% for skill in cv.competences_techniques | sort(attribute="note", reverse=True) %}
-                <div class="skill-card" data-aos="fade-up">
-                    <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
-                    {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
-                    <div class="stars">
-                        {% for _ in range(note) %}⭐{% endfor %}
-                        {% for _ in range(5 - note) %}☆{% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+  <div class="skills-columns">
+    <div class="skills-group">
+      <h3>Technical Skills</h3>
+      <div class="skills-list">
+        {% for skill in cv.competences_techniques | sort(attribute="note", reverse=True) %}
+          <div class="skill-card">
+            <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
+            {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
+            <div class="stars">
+              {% for _ in range(note) %}⭐{% endfor %}
+              {% for _ in range(5 - note) %}☆{% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
 
-    <div class="skills-group bento-item medium">
-        <h3>Compétences comportementales</h3>
-        <div class="skills-list">
-            {% for skill in cv.competences_comportementales | sort(attribute="note", reverse=True) %}
-                <div class="skill-card" data-aos="fade-up">
-                    <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
-                    {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
-                    <div class="stars">
-                        {% for _ in range(note) %}⭐{% endfor %}
-                        {% for _ in range(5 - note) %}☆{% endfor %}
-                    </div>
-                </div>
-            {% endfor %}
-        </div>
+    <div class="skills-group">
+      <h3>Soft Skills</h3>
+      <div class="skills-list">
+        {% for skill in cv.competences_comportementales | sort(attribute="note", reverse=True) %}
+          <div class="skill-card">
+            <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
+            {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
+            <div class="stars">
+              {% for _ in range(note) %}⭐{% endfor %}
+              {% for _ in range(5 - note) %}☆{% endfor %}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
     </div>
+  </div>
 </section>

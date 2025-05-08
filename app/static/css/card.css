@@ -93,3 +93,173 @@
   color: #94a3b8;
   font-weight: 500;
 }
+
+
+.experience-section {
+  margin: 4rem 0;
+}
+
+.experience-section h2 {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.experience-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.experience-card {
+  background-color: #1f1f1f;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.experience-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.experience-header h3 {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.experience-date {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.experience-company {
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.experience-description {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+.formation-section {
+  margin: 4rem 0;
+}
+
+.formation-section h2 {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.formation-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+
+.formation-card {
+  background-color: #1f1f1f;
+  border-radius: 1rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+  padding: 2rem;
+  color: #ffffff;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.formation-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.formation-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.formation-header h3 {
+  font-size: 1.25rem;
+  color: var(--color-accent);
+  margin: 0;
+}
+
+.formation-date {
+  font-size: 0.9rem;
+  color: #94a3b8;
+}
+
+.formation-lieu {
+  font-weight: 500;
+  color: #cbd5e1;
+  margin-bottom: 0.5rem;
+}
+
+.formation-description {
+  font-size: 1rem;
+  color: #cbd5e1;
+  line-height: 1.6;
+}
+
+#contact {
+  margin: 4rem 0;
+}
+
+#contact h2 {
+  font-size: 2.5rem;
+  color: var(--color-accent);
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+#contact .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+#contact .card {
+  background-color: #1f1f1f;
+  border-radius: 1rem;
+  padding: 1.5rem;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+  color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#contact .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+}
+
+#contact .card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-accent);
+}
+
+#contact .card p,
+#contact .card a {
+  font-size: 1rem;
+  color: #cbd5e1;
+  word-break: break-word;
+}
+
+#contact .card a:hover {
+  text-decoration: underline;
+}

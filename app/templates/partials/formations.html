@@ -1,15 +1,17 @@
-<section id="formations">
-    <h2>Formations</h2>
-    <div class="grid projects-grid">
-        {% for formation in cv.formations | sort(attribute='periode', reverse=True) %}
-            <div class="card" data-aos="fade-up">
-                <h3>{{ formation.diplome }}</h3>
-                <p class="date">{{ formation.periode }}</p>
-                <p><strong>{{ formation.lieu }}</strong></p>
-                {% if formation.description %}
-                    <p>{{ formation.description }}</p>
-                {% endif %}
-            </div>
-        {% endfor %}
-    </div>
+<section id="formations" class="formation-section">
+  <h2 class="section-title">Education</h2>
+  <div class="formation-grid">
+    {% for formation in cv.formations | sort(attribute='periode', reverse=True) %}
+      <div class="formation-card">
+        <div class="formation-header">
+          <h3>{{ formation.diplome }}</h3>
+          <span class="formation-date">{{ formation.periode }}</span>
+        </div>
+        <p class="formation-lieu"><strong>{{ formation.lieu }}</strong></p>
+        {% if formation.description %}
+          <p class="formation-description">{{ formation.description }}</p>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
 </section>

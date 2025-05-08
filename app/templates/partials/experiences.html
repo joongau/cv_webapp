@@ -1,13 +1,15 @@
-<section id="experiences">
-    <h2>Expériences professionnelles</h2>
-    <div class="grid projects-grid">
-        {% for exp in cv.experiences %}
-            <div class="card" data-aos="fade-up">
-                <h3>{{ exp.poste }}</h3>
-                <p class="date">{{ exp.periode }}</p>
-                <p><strong>{{ exp.entreprise }}</strong></p>
-                <p>{{ exp.description }}</p>
-            </div>
-        {% endfor %}
-    </div>
+<section id="experiences" class="experience-section">
+  <h2 class="section-title">Professional Experience</h2>
+  <div class="experience-grid">
+    {% for exp in cv.experiences %}
+      <div class="experience-card">
+        <div class="experience-header">
+          <h3>{{ exp.poste }}</h3>
+          <span class="experience-date">{{ exp.periode }}</span>
+        </div>
+        <p class="experience-company"><strong>{{ exp.entreprise }}</strong></p>
+        <p class="experience-description">{{ exp.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
 </section>

@@ -1,25 +1,35 @@
 <section id="contact">
-    <h2>Contact</h2>
-    <div class="grid projects-grid">
-        <div class="card" data-aos="fade-up">
-            <h3>Téléphone</h3>
-            <p>{{ cv.contact.téléphone }}</p>
-        </div>
-        <div class="card" data-aos="fade-up">
-            <h3>Email</h3>
-            <p><a href="mailto:{{ cv.contact.email }}">{{ cv.contact.email }}</a></p>
-        </div>
-        <div class="card" data-aos="fade-up">
-            <h3>Adresse</h3>
-            <p>{{ cv.contact.adresse }}</p>
-        </div>
-        <div class="card" data-aos="fade-up">
-            <h3>LinkedIn</h3>
-            <p><a href="{{ cv.contact.linkedin }}" target="_blank">{{ cv.contact.linkedin }}</a></p>
-        </div>
-        <div class="card" data-aos="fade-up">
-            <h3>GitHub</h3>
-            <p><a href="{{ cv.contact.github }}" target="_blank">{{ cv.contact.github }}</a></p>
-        </div>
-    </div>
+  <h2>Contact</h2>
+  <div class="projects-grid">
+    {% if cv.contact.téléphone %}
+      <div class="card">
+        <h3>Téléphone</h3>
+        <p>{{ cv.contact.téléphone }}</p>
+      </div>
+    {% endif %}
+    {% if cv.contact.email %}
+      <div class="card">
+        <h3>Email</h3>
+        <p><a href="mailto:{{ cv.contact.email }}">{{ cv.contact.email }}</a></p>
+      </div>
+    {% endif %}
+    {% if cv.contact.adresse %}
+      <div class="card">
+        <h3>Adresse</h3>
+        <p>{{ cv.contact.adresse }}</p>
+      </div>
+    {% endif %}
+    {% if cv.contact.linkedin %}
+      <div class="card">
+        <h3>LinkedIn</h3>
+        <p><a href="{{ cv.contact.linkedin }}" target="_blank">{{ cv.contact.linkedin }}</a></p>
+      </div>
+    {% endif %}
+    {% if cv.contact.github %}
+      <div class="card">
+        <h3>GitHub</h3>
+        <p><a href="{{ cv.contact.github }}" target="_blank">{{ cv.contact.github }}</a></p>
+      </div>
+    {% endif %}
+  </div>
 </section>
