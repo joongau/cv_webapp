@@ -1,18 +1,25 @@
 <section id="projets">
   <h2 class="section-title">My Projects</h2>
+  
   <div class="projects-grid">
     {% for projet in cv.projets | sort(attribute='titre') | sort(attribute='année', reverse=True) %}
       <div class="project-card bento-card">
+        
+        <!-- En-tête du projet -->
         <div class="bento-header">
           <h3 class="bento-title">{{ projet.titre }}</h3>
           <span class="bento-year">{{ projet.année }}</span>
         </div>
+
+        <!-- Contenu du projet -->
         <div class="bento-content">
           <p class="bento-description">{{ projet.description }}</p>
+          
           {% if projet.lien %}
             <a href="{{ projet.lien }}" target="_blank" class="bento-link">Voir le projet ↗</a>
           {% endif %}
         </div>
+
       </div>
     {% endfor %}
   </div>
