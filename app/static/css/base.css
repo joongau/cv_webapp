@@ -52,5 +52,10 @@ a:hover {
 }
 
 main {
-  margin-top: 70px; /* Ajuste si ta barre de navigation est plus haute */
+  margin-top: 70px;
+  padding: 2rem 4rem;
+}
+
+section {
+  margin-bottom: 4rem;
 }
