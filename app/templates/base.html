@@ -27,6 +27,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    
 </head>
 <body>
  
@@ -61,5 +62,25 @@
 <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
   AOS.init({ once: true, duration: 700 });
+</script>
+<script src="https://unpkg.com/macy@2"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const macyInstance = Macy({
+      container: '.bento-grid',
+      trueOrder: false,
+      waitForImages: true,
+      margin: 24,
+      columns: 2,
+      breakAt: {
+        768: 1,
+        1024: 2
+      }
+    });
+
+    window.addEventListener('load', function () {
+      macyInstance.recalculate(true);
+    });
+  });
 </script>
 </html>

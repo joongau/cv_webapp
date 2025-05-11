@@ -9,22 +9,18 @@
   </div>
 
   <!-- Grille principale (Expériences - Compétences / Projets - Formations) -->
-  <div class="grid-container bento-grid">
-    <div class="grid-row">
-      <div class="grid-column">
-        {% include 'partials/experiences.html' %}
-      </div>
-      <div class="grid-column">
-        {% include 'partials/competences.html' %}
-      </div>
+  <div class="bento-grid">
+    <div class="grid-column">
+      {% include 'partials/experiences.html' %}
     </div>
-    <div class="grid-row">
-      <div class="grid-column">
-        {% include 'partials/projets.html' %}
-      </div>
-      <div class="grid-column">
-        {% include 'partials/formations.html' %}
-      </div>
+    <div class="grid-column">
+      {% include 'partials/competences.html' %}
+    </div>
+    <div class="grid-column">
+      {% include 'partials/projets.html' %}
+    </div>
+    <div class="grid-column">
+      {% include 'partials/formations.html' %}
     </div>
   </div>
 
