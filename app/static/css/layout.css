@@ -8,7 +8,7 @@
 
 /* Section */
 section {
-  margin-bottom: 1rem;
+  margin-bottom: 3rem;
 }
 
 /* Flex utility */
@@ -43,7 +43,7 @@ section {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   grid-auto-flow: dense;
-  gap: 2rem;
+  gap: 1rem; /* Espacement plus large et homogène */
   align-items: start;
   width: 90%;
   max-width: 1200px;

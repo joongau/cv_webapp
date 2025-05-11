@@ -73,5 +73,5 @@ main {
 }
 
 section {
-  margin-bottom: 4rem;
+  margin-bottom: 1rem; /* Réduit légèrement l'espacement pour une meilleure uniformité */
 }
