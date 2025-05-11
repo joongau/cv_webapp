@@ -3,10 +3,10 @@
    ============================= */
 
 .skills-section h2 {
-  font-size: 2.5rem;
+  font-size: 36px;
   margin-bottom: 2rem;
-  color: var(--color-accent);
-  text-align: center;
+  color: white;
+  text-align: left;
 }
 
 /* =============================
