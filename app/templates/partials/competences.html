@@ -3,10 +3,12 @@
 
   <div class="skills-columns">
 
+    <!-- ====== Technical Skills Section ====== -->
     <div class="skills-group">
       <h3>Technical Skills</h3>
-      <div class="skills-list two-columns">
+      <div class="skills-grid">
         {% for skill in cv.competences_techniques | sort(attribute="note", reverse=True) %}
+          <!-- Start of technical skill card -->
           <div class="skill-card skills-card">
             <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
             {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
@@ -19,14 +21,17 @@
               {% endfor %}
             </div>
           </div>
+          <!-- End of technical skill card -->
         {% endfor %}
       </div>
     </div>
 
+    <!-- ====== Soft Skills Section ====== -->
     <div class="skills-group">
       <h3>Soft Skills</h3>
-      <div class="skills-list two-columns">
+      <div class="skills-grid">
         {% for skill in cv.competences_comportementales | sort(attribute="note", reverse=True) %}
+          <!-- Start of soft skill card -->
           <div class="skill-card skills-card">
             <div class="name">{{ skill.nom or 'Compétence sans nom' }}</div>
             {% set note = skill.note if skill.note is defined and skill.note is not none else 0 %}
@@ -39,6 +44,7 @@
               {% endfor %}
             </div>
           </div>
+          <!-- End of soft skill card -->
         {% endfor %}
       </div>
     </div>
