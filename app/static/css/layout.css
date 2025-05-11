@@ -48,6 +48,7 @@ section {
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  margin-top: 4rem;
 }
 
 .bento-item {
