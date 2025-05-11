@@ -1,16 +1,15 @@
 /* =============================
-   Styles de base unifiés pour toutes les cartes
+   Styles de base pour toutes les cartes
    ============================= */
 .card,
 .project-card,
 .experience-card,
 .formation-card,
-.skill-card,
 #contact .card {
-  background-color: var(--color-bg-dark);
+  background-color: #1f1f1f;
   border-radius: 1rem;
   padding: 2rem;
-  color: var(--color-text);
+  color: #ffffff;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
@@ -19,20 +18,18 @@
 .project-card:hover,
 .experience-card:hover,
 .formation-card:hover,
-.skill-card:hover,
 #contact .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
 }
 
 /* =============================
-   Titres des cartes
+   Titres
    ============================= */
 .card h3,
 .project-card h3,
 .experience-header h3,
 .formation-header h3,
-.skill-card h3,
 #contact .card h3 {
   font-size: 1.25rem;
   color: var(--color-accent);
@@ -40,19 +37,18 @@
 }
 
 /* =============================
-   Contenu des cartes
+   Paragraphes et détails
    ============================= */
 .card p,
 .project-description,
 .experience-description,
 .formation-description,
-.skill-description,
 #contact .card p,
 #contact .card a,
 .experience-company,
 .formation-lieu {
   font-size: 1rem;
-  color: var(--color-muted);
+  color: #cbd5e1;
   line-height: 1.6;
   margin: 0.5rem 0;
   word-break: break-word;
@@ -64,12 +60,12 @@
 .formation-date {
   font-size: 0.85rem;
   font-weight: 500;
-  color: var(--color-muted);
+  color: #94a3b8;
   margin-bottom: 1rem;
 }
 
 /* =============================
-   Liens dans les cartes
+   Liens
    ============================= */
 .card a,
 .project-link,
