@@ -14,7 +14,7 @@
   --color-bg: #161616;
   --color-text: #ffffff;
   --color-accent: #e63e20;
-  --color-muted: #1f1f1f;
+  --color-muted: #2a2a2a; /* Fond des cartes plus clair pour un meilleur contraste */
   --color-muted-text: #cbd5e1;
   --font-base: 'Inter', sans-serif;
 }
